@@ -20,8 +20,4 @@ public enum ModRank {
 
     public int getRankNum() { return this.rankNum; }
     public String getNameKey() { return this.nameKey; }
-    public static ModRank fromNameKey(String key) {
-        for (ModRank rank : values()) { if (rank.nameKey.equals(key)) { return rank; } }
-        return MORTAL;
-    }
 }

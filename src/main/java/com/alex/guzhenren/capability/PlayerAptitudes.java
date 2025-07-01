@@ -77,14 +77,9 @@ public class PlayerAptitudes {
     // COPY FROM
     public void copyFrom(PlayerAptitudes source) {
         if (source == null) { resetProperties(); return; }
-        lifespan = source.lifespan;
-        thoughts = source.thoughts;
-        soul = source.soul;
-        luck = source.luck;
-        moral = source.moral;
-        rank = source.rank;
-        stage = source.stage;
-        talent = source.talent;
+        lifespan = source.lifespan; thoughts = source.thoughts;
+        soul = source.soul; luck = source.luck; moral = source.moral;
+        rank = source.rank; stage = source.stage; talent = source.talent;
     }
 
     // NBT DATA

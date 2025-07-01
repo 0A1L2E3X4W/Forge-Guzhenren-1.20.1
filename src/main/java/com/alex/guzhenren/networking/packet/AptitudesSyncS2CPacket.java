@@ -1,15 +1,18 @@
 package com.alex.guzhenren.networking.packet;
 
+import com.alex.guzhenren.capability.PlayerAptitudes;
 import com.alex.guzhenren.client.data.ClientAptitudesData;
+import com.alex.guzhenren.networking.ModMessage;
 import com.alex.guzhenren.utils.enums.ModRank;
 import com.alex.guzhenren.utils.enums.ModStage;
 import com.alex.guzhenren.utils.enums.ModTalent;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class SyncAptitudeS2C {
+public class AptitudesSyncS2CPacket {
 
     private final float lifespan;
     private final float thoughts;
@@ -20,22 +23,17 @@ public class SyncAptitudeS2C {
     private final ModStage stage;
     private final ModTalent talent;
 
-    public SyncAptitudeS2C(
+    public AptitudesSyncS2CPacket(
             float lifespan, float thoughts,
             int soul, int luck, int moral,
             ModRank rank, ModStage stage, ModTalent talent
     ) {
-        this.lifespan = lifespan;
-        this.thoughts = thoughts;
-        this.soul = soul;
-        this.luck = luck;
-        this.moral = moral;
-        this.rank = rank;
-        this.stage = stage;
-        this.talent = talent;
+        this.lifespan = lifespan; this.thoughts = thoughts;
+        this.soul = soul; this.luck = luck; this.moral = moral;
+        this.rank = rank; this.stage = stage; this.talent = talent;
     }
 
-    public SyncAptitudeS2C(FriendlyByteBuf buf) {
+    public AptitudesSyncS2CPacket(FriendlyByteBuf buf) {
         lifespan = buf.readFloat();
         thoughts = buf.readFloat();
         soul = buf.readInt();
@@ -59,7 +57,7 @@ public class SyncAptitudeS2C {
         buf.writeEnum(talent);
     }
 
-    public boolean handle(Supplier<NetworkEvent.Context> supplier) {
+    public void handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
             ClientAptitudesData.setLifespan(lifespan);
@@ -71,6 +69,13 @@ public class SyncAptitudeS2C {
             ClientAptitudesData.setStage(stage);
             ClientAptitudesData.setTalent(talent);
         });
-        return true;
+    }
+
+    public static void send(ServerPlayer serverPlayer, PlayerAptitudes aptitudes) {
+        ModMessage.sendToPlayer(new AptitudesSyncS2CPacket(
+                aptitudes.getLifespan(), aptitudes.getThoughts(),
+                aptitudes.getSoul(), aptitudes.getLuck(), aptitudes.getMoral(),
+                aptitudes.getRank(), aptitudes.getStage(), aptitudes.getTalent()),
+                serverPlayer);
     }
 }

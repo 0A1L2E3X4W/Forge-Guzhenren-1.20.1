@@ -13,8 +13,4 @@ public enum ModTalent {
     ModTalent(String key) { this.nameKey = key; }
 
     public String getNameKey() { return this.nameKey; }
-    public static ModTalent fromNameKey(String key) {
-        for (ModTalent talent : values()) { if (talent.nameKey.equals(key)) { return talent; } }
-        return NULL;
-    }
 }

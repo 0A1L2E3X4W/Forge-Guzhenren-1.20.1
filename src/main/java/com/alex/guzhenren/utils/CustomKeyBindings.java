@@ -5,7 +5,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import org.lwjgl.glfw.GLFW;
 
-public class ModKeyBindings {
+public class CustomKeyBindings {
 
     public static final String KEY_CATEGORY_GUZHENREN = "key.category.guzhenren";
     public static final String KEY_TEST = "key.guzhenren.test";

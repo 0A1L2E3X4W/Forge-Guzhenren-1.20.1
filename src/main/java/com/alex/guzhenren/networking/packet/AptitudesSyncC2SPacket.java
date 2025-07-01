@@ -9,13 +9,13 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class SyncAptitudeC2S {
+public class AptitudesSyncC2SPacket {
 
-    public SyncAptitudeC2S() {
+    public AptitudesSyncC2SPacket() {
 
     }
 
-    public SyncAptitudeC2S(FriendlyByteBuf buf) {
+    public AptitudesSyncC2SPacket(FriendlyByteBuf buf) {
 
     }
 
@@ -23,7 +23,7 @@ public class SyncAptitudeC2S {
 
     }
 
-    public boolean handle(Supplier<NetworkEvent.Context> supplier) {
+    public void handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
 
@@ -33,7 +33,7 @@ public class SyncAptitudeC2S {
 
             serverPlayer.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).ifPresent(aptitude -> {
 
-                ModMessage.sendToPlayer(new SyncAptitudeS2C(
+                ModMessage.sendToPlayer(new AptitudesSyncS2CPacket(
                         aptitude.getLifespan(),
                         aptitude.getThoughts(),
                         aptitude.getSoul(),
@@ -45,6 +45,5 @@ public class SyncAptitudeC2S {
                         serverPlayer);
             });
         });
-        return true;
     }
 }

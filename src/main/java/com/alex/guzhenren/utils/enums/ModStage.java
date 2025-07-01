@@ -12,8 +12,4 @@ public enum ModStage {
     ModStage(String key) { this.nameKey = key; }
 
     public String getNameKey() { return this.nameKey; }
-    public static ModStage fromNameKey(String key) {
-        for (ModStage stage : values()) { if (stage.nameKey.equals(key)) { return stage; } }
-        return NULL;
-    }
 }

@@ -9,13 +9,13 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class SyncEssenceC2S {
+public class EssenceSyncC2SPacket {
 
-    public SyncEssenceC2S() {
+    public EssenceSyncC2SPacket() {
 
     }
 
-    public SyncEssenceC2S(FriendlyByteBuf buf) {
+    public EssenceSyncC2SPacket(FriendlyByteBuf buf) {
 
     }
 
@@ -23,7 +23,7 @@ public class SyncEssenceC2S {
 
     }
 
-    public boolean handle(Supplier<NetworkEvent.Context> supplier) {
+    public void handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
 
@@ -33,9 +33,8 @@ public class SyncEssenceC2S {
 
             serverPlayer.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE).ifPresent(essence -> {
                 essence.subEssence(10);
-                ModMessage.sendToPlayer(new SyncEssenceS2C(essence.getEssence(), essence.getMaxEssence()), serverPlayer);
+                ModMessage.sendToPlayer(new EssenceSyncS2CPacket(essence.getEssence(), essence.getMaxEssence()), serverPlayer);
             });
         });
-        return true;
     }
 }

@@ -21,17 +21,19 @@ public class ClientHudOverlay {
     public static final IGuiOverlay HUD_ESSENCE =
             (gui, guiGraphics, partialTick, screenWidth, screenHeight) -> {
 
-                int x = 12;
-                int y = 12;
+                int x = 12; int y = 12;
 
                 float playerEssence = ClientEssenceData.getEssence();
                 int playerMaxEssence = ClientEssenceData.getMaxEssence();
 
                 float fillRatio = Math.min(playerEssence / (float) playerMaxEssence, 1.0f);
                 int fillWidth = (int) (BAR_WIDTH * fillRatio);
+
                 drawRoundedRect(guiGraphics, x, y, BAR_WIDTH, BAR_HEIGHT, BACKGROUND_COLOR);
+
                 if (fillWidth > 0) {
-                    drawRoundedRect(guiGraphics, x + BAR_PADDING, y + BAR_PADDING,
+                    drawRoundedRect(guiGraphics,
+                            x + BAR_PADDING, y + BAR_PADDING,
                             fillWidth - 2 * BAR_PADDING, BAR_HEIGHT - 2 * BAR_PADDING,
                             FILL_COLOR);
                 }
@@ -47,8 +49,7 @@ public class ClientHudOverlay {
     public static final IGuiOverlay HUD_APTITUDE =
             (gui, guiGraphics, partialTick, screenWidth, screenHeight) ->  {
 
-                int x = 12 + 4;
-                int y = 12 + 16;
+                int x = 12 + 4; int y = 12 + 16;
 
                 float playerLifespan = ClientAptitudesData.getLifespan();
                 ModRank playerRank = ClientAptitudesData.getRank();

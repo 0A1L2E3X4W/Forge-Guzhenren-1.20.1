@@ -6,8 +6,8 @@ import com.alex.guzhenren.capability.PlayerAptitudesProvider;
 import com.alex.guzhenren.capability.PlayerEssence;
 import com.alex.guzhenren.capability.PlayerEssenceProvider;
 import com.alex.guzhenren.networking.ModMessage;
-import com.alex.guzhenren.networking.packet.SyncAptitudeS2C;
-import com.alex.guzhenren.networking.packet.SyncEssenceS2C;
+import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
+import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -30,17 +30,11 @@ public class ModCommonEvent {
             if(event.getEntity() instanceof ServerPlayer serverPlayer) {
 
                 serverPlayer.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE).ifPresent(essence -> {
-                    ModMessage.sendToPlayer(new SyncEssenceS2C(
-                            essence.getEssence(), essence.getMaxEssence()),
-                            serverPlayer);
+                    EssenceSyncS2CPacket.send(serverPlayer, essence);
                 });
 
                 serverPlayer.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).ifPresent(aptitudes -> {
-                    ModMessage.sendToPlayer(new SyncAptitudeS2C(
-                            aptitudes.getLifespan(), aptitudes.getThoughts(),
-                            aptitudes.getSoul(), aptitudes.getLuck(), aptitudes.getMoral(),
-                            aptitudes.getRank(), aptitudes.getStage(), aptitudes.getTalent()),
-                            serverPlayer);
+                    AptitudesSyncS2CPacket.send(serverPlayer, aptitudes);
                 });
             }
         }
@@ -51,15 +45,13 @@ public class ModCommonEvent {
         if (event.getObject() instanceof Player) {
 
             if (!event.getObject().getCapability(PlayerEssenceProvider.PLAYER_ESSENCE).isPresent()) {
-                event.addCapability(
-                        ResourceLocation.fromNamespaceAndPath(
-                                Guzhenren.MOD_ID, "property_essence"), new PlayerEssenceProvider());
+                event.addCapability(ResourceLocation.fromNamespaceAndPath(
+                        Guzhenren.MOD_ID, "property_essence"), new PlayerEssenceProvider());
             }
 
             if (!event.getObject().getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).isPresent()) {
-                event.addCapability(
-                        ResourceLocation.fromNamespaceAndPath(
-                                Guzhenren.MOD_ID, "property_aptitudes"), new PlayerAptitudesProvider());
+                event.addCapability(ResourceLocation.fromNamespaceAndPath(
+                        Guzhenren.MOD_ID, "property_aptitudes"), new PlayerAptitudesProvider());
             }
         }
     }
@@ -93,10 +85,7 @@ public class ModCommonEvent {
 
                 if (playerEssence < playerMaxEssence) {
                     essence.addEssence((float) playerMaxEssence / (20*60*10));
-
-                    ModMessage.sendToPlayer(new SyncEssenceS2C(
-                            essence.getEssence(), essence.getMaxEssence()),
-                            ((ServerPlayer) event.player));
+                    EssenceSyncS2CPacket.send((ServerPlayer) event.player, essence);
                 }
             });
 
@@ -106,12 +95,7 @@ public class ModCommonEvent {
 
                 if (playerLifespan > 0.1f) {
                     aptitudes.subLifespan(1f / (20 * 60 * 10));
-
-                    ModMessage.sendToPlayer(new SyncAptitudeS2C(
-                            aptitudes.getLifespan(), aptitudes.getThoughts(),
-                            aptitudes.getSoul(), aptitudes.getLuck(), aptitudes.getMoral(),
-                            aptitudes.getRank(), aptitudes.getStage(), aptitudes.getTalent()),
-                            ((ServerPlayer) event.player));
+                    AptitudesSyncS2CPacket.send((ServerPlayer) event.player, aptitudes);
                 }
             });
         }

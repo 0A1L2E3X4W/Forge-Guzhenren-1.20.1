@@ -1,10 +1,10 @@
 package com.alex.guzhenren.networking;
 
 import com.alex.guzhenren.Guzhenren;
-import com.alex.guzhenren.networking.packet.SyncAptitudeC2S;
-import com.alex.guzhenren.networking.packet.SyncAptitudeS2C;
-import com.alex.guzhenren.networking.packet.SyncEssenceC2S;
-import com.alex.guzhenren.networking.packet.SyncEssenceS2C;
+import com.alex.guzhenren.networking.packet.AptitudesSyncC2SPacket;
+import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
+import com.alex.guzhenren.networking.packet.EssenceSyncC2SPacket;
+import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -31,22 +31,22 @@ public class ModMessage {
         INSTANCE = network;
 
         // CLIENT TO SERVER
-        network.messageBuilder(SyncEssenceC2S.class, getPacketId(), NetworkDirection.PLAY_TO_SERVER)
-                .decoder(SyncEssenceC2S::new).encoder(SyncEssenceC2S::toBytes)
-                .consumerMainThread(SyncEssenceC2S::handle).add();
+        network.messageBuilder(EssenceSyncC2SPacket.class, getPacketId(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(EssenceSyncC2SPacket::new).encoder(EssenceSyncC2SPacket::toBytes)
+                .consumerMainThread(EssenceSyncC2SPacket::handle).add();
 
-        network.messageBuilder(SyncAptitudeC2S.class, getPacketId(), NetworkDirection.PLAY_TO_SERVER)
-                .decoder(SyncAptitudeC2S::new).encoder(SyncAptitudeC2S::toBytes)
-                .consumerMainThread(SyncAptitudeC2S::handle).add();
+        network.messageBuilder(AptitudesSyncC2SPacket.class, getPacketId(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(AptitudesSyncC2SPacket::new).encoder(AptitudesSyncC2SPacket::toBytes)
+                .consumerMainThread(AptitudesSyncC2SPacket::handle).add();
 
         // SERVER TO CLIENT
-        network.messageBuilder(SyncEssenceS2C.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
-                .decoder(SyncEssenceS2C::new).encoder(SyncEssenceS2C::toBytes)
-                .consumerMainThread(SyncEssenceS2C::handle).add();
+        network.messageBuilder(EssenceSyncS2CPacket.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(EssenceSyncS2CPacket::new).encoder(EssenceSyncS2CPacket::toBytes)
+                .consumerMainThread(EssenceSyncS2CPacket::handle).add();
 
-        network.messageBuilder(SyncAptitudeS2C.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
-                .decoder(SyncAptitudeS2C::new).encoder(SyncAptitudeS2C::toBytes)
-                .consumerMainThread(SyncAptitudeS2C::handle).add();
+        network.messageBuilder(AptitudesSyncS2CPacket.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(AptitudesSyncS2CPacket::new).encoder(AptitudesSyncS2CPacket::toBytes)
+                .consumerMainThread(AptitudesSyncS2CPacket::handle).add();
     }
 
     public static <MEG> void sendToServer(MEG message) {

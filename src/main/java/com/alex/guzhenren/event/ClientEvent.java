@@ -3,7 +3,7 @@ package com.alex.guzhenren.event;
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.client.gui.ClientStatsGuiOverlay;
 import com.alex.guzhenren.client.hud.ClientHudOverlay;
-import com.alex.guzhenren.utils.ModKeyBindings;
+import com.alex.guzhenren.utils.CustomKeyBindings;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
@@ -25,7 +25,7 @@ public class ClientEvent {
 
         @SubscribeEvent
         public static void onKeyRegister(RegisterKeyMappingsEvent event) {
-            event.register(ModKeyBindings.TEST_KEY);
+            event.register(CustomKeyBindings.TEST_KEY);
         }
 
         @SubscribeEvent
@@ -41,7 +41,7 @@ public class ClientEvent {
         @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
             Minecraft mc = Minecraft.getInstance();
-            if (ModKeyBindings.TEST_KEY.consumeClick() && mc.player != null) {
+            if (CustomKeyBindings.TEST_KEY.consumeClick() && mc.player != null) {
                 mc.setScreen(new ClientStatsGuiOverlay());
             }
         }
