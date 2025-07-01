@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_primeval_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "guzhenren:primeval_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "guzhenren:primeval_stone_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_primeval_stone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "guzhenren:primeval_stone_block"
+    ]
+  },
+  "sends_telemetry_event": false
+}
