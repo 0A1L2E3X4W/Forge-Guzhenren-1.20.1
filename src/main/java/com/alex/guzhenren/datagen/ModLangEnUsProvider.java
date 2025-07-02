@@ -15,9 +15,11 @@ public class ModLangEnUsProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        this.addItem(ModItems.APERTURE, "Aperture");
-        this.addItem(ModItems.HUMAN_HEART, "Human Heart");
-        this.addItem(ModItems.PRIMEVAL_STONE, "Primeval Stone");
+        addItem(ModItems.APERTURE, "Aperture");
+        addItem(ModItems.HUMAN_HEART, "Human Heart");
+        addItem(ModItems.PRIMEVAL_STONE, "Primeval Stone");
+
+        addItem(ModItems.HOPE, "Hope Gu");
 
         addBlock(ModBlocks.PRIMEVAL_STONE_BLOCK, "Primeval Stone Block");
         addBlock(ModBlocks.PRIMEVAL_STONE_ORE, "Primeval Stone Ore");

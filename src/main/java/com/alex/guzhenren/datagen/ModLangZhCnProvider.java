@@ -15,9 +15,11 @@ public class ModLangZhCnProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        this.addItem(ModItems.APERTURE, "人窍");
-        this.addItem(ModItems.HUMAN_HEART, "人心");
-        this.addItem(ModItems.PRIMEVAL_STONE, "元石");
+        addItem(ModItems.APERTURE, "人窍");
+        addItem(ModItems.HUMAN_HEART, "人心");
+        addItem(ModItems.PRIMEVAL_STONE, "元石");
+
+        addItem(ModItems.HOPE, "希望蛊");
 
         addBlock(ModBlocks.PRIMEVAL_STONE_BLOCK, "元石块");
         addBlock(ModBlocks.PRIMEVAL_STONE_ORE, "元石矿");

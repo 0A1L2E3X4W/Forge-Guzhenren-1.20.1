@@ -14,8 +14,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        this.basicItem(ModItems.APERTURE.get());
-        this.basicItem(ModItems.HUMAN_HEART.get());
-        this.basicItem(ModItems.PRIMEVAL_STONE.get());
+        basicItem(ModItems.APERTURE.get());
+        basicItem(ModItems.HUMAN_HEART.get());
+        basicItem(ModItems.PRIMEVAL_STONE.get());
+
+        basicItem(ModItems.HOPE.get());
     }
 }
