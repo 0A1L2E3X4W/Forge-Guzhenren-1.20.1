@@ -1,10 +1,7 @@
 package com.alex.guzhenren.networking;
 
 import com.alex.guzhenren.Guzhenren;
-import com.alex.guzhenren.networking.packet.AptitudesSyncC2SPacket;
-import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
-import com.alex.guzhenren.networking.packet.EssenceSyncC2SPacket;
-import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
+import com.alex.guzhenren.networking.packet.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -30,15 +27,6 @@ public class ModMessage {
                 .simpleChannel();
         INSTANCE = network;
 
-        // CLIENT TO SERVER
-        network.messageBuilder(EssenceSyncC2SPacket.class, getPacketId(), NetworkDirection.PLAY_TO_SERVER)
-                .decoder(EssenceSyncC2SPacket::new).encoder(EssenceSyncC2SPacket::toBytes)
-                .consumerMainThread(EssenceSyncC2SPacket::handle).add();
-
-        network.messageBuilder(AptitudesSyncC2SPacket.class, getPacketId(), NetworkDirection.PLAY_TO_SERVER)
-                .decoder(AptitudesSyncC2SPacket::new).encoder(AptitudesSyncC2SPacket::toBytes)
-                .consumerMainThread(AptitudesSyncC2SPacket::handle).add();
-
         // SERVER TO CLIENT
         network.messageBuilder(EssenceSyncS2CPacket.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(EssenceSyncS2CPacket::new).encoder(EssenceSyncS2CPacket::toBytes)
@@ -47,6 +35,10 @@ public class ModMessage {
         network.messageBuilder(AptitudesSyncS2CPacket.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(AptitudesSyncS2CPacket::new).encoder(AptitudesSyncS2CPacket::toBytes)
                 .consumerMainThread(AptitudesSyncS2CPacket::handle).add();
+
+        network.messageBuilder(FlagsSyncS2CPacket.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(FlagsSyncS2CPacket::new).encoder(FlagsSyncS2CPacket::toBytes)
+                .consumerMainThread(FlagsSyncS2CPacket::handle).add();
     }
 
     public static <MEG> void sendToServer(MEG message) {

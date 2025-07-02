@@ -7,8 +7,8 @@ public class ClientEssenceData {
 
     // GETTER & SETTER
     public static int getMaxEssence() { return maxEssence; }
-    public static void setMaxEssence(int val) { ClientEssenceData.maxEssence = val; }
+    public static void setMaxEssence(int i) { ClientEssenceData.maxEssence = i; }
 
     public static float getEssence() { return essence; }
-    public static void setEssence(float val) { ClientEssenceData.essence = val; }
+    public static void setEssence(float v) { ClientEssenceData.essence = v; }
 }

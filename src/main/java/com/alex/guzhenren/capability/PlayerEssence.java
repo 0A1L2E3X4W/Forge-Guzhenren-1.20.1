@@ -10,8 +10,8 @@ public class PlayerEssence {
     private static final float DEFAULT_ESSENCE = 0f;
     private static final int DEFAULT_MAX_ESSENCE = 0;
 
-    private float essence;
-    private int maxEssence;
+    private float essence = DEFAULT_ESSENCE;
+    private int maxEssence = DEFAULT_MAX_ESSENCE;
 
     // GETTER & SETTER
     public float getEssence() { return essence; }
@@ -22,30 +22,20 @@ public class PlayerEssence {
     public int getMaxEssence() { return maxEssence; }
     public void setMaxEssence(int val) { maxEssence = val; }
 
-    public PlayerEssence() { resetProperties(); }
-
     // COPY FROM
     public void copyFrom(PlayerEssence source) {
-        if (source == null) { resetProperties(); return; }
         essence = source.essence;
         maxEssence = source.maxEssence;
     }
 
     // NBT DATA
     public void saveNbtData(CompoundTag nbt) {
-        if (nbt == null) return;
         nbt.putFloat(KEY_ESSENCE, essence);
         nbt.putInt(KEY_MAX_ESSENCE, maxEssence);
     }
 
     public void loadNbtData(CompoundTag nbt) {
-        if (nbt == null) { resetProperties(); return; }
         this.setEssence(nbt.contains(KEY_ESSENCE) ? nbt.getFloat(KEY_ESSENCE) : DEFAULT_ESSENCE);
         this.setMaxEssence(nbt.contains(KEY_MAX_ESSENCE) ? nbt.getInt(KEY_MAX_ESSENCE) : DEFAULT_MAX_ESSENCE);
-    }
-
-    private void resetProperties() {
-        essence = DEFAULT_ESSENCE;
-        maxEssence = DEFAULT_MAX_ESSENCE;
     }
 }

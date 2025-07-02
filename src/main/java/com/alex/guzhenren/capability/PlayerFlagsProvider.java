@@ -11,33 +11,33 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class PlayerEssenceProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+public class PlayerFlagsProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
 
-    public static Capability<PlayerEssence> PLAYER_ESSENCE = CapabilityManager.get(new CapabilityToken<PlayerEssence>() {});
+    public static Capability<PlayerFlags> PLAYER_FLAGS = CapabilityManager.get(new CapabilityToken<PlayerFlags>() {});
     
-    private PlayerEssence playerEssence;
-    private final LazyOptional<PlayerEssence> optional = LazyOptional.of(this::createPlayerEssence);
+    private PlayerFlags playerFlags;
+    private final LazyOptional<PlayerFlags> optional = LazyOptional.of(this::createPlayerFlags);
 
-    private PlayerEssence createPlayerEssence() {
-        if (playerEssence == null) { playerEssence = new PlayerEssence(); }
-        return playerEssence;
+    private PlayerFlags createPlayerFlags() {
+        if (playerFlags == null) { playerFlags = new PlayerFlags(); }
+        return playerFlags;
     }
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction direction) {
-        if (capability == PLAYER_ESSENCE) { return optional.cast(); }
+        if (capability == PLAYER_FLAGS) { return optional.cast(); }
         return LazyOptional.empty();
     }
 
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag nbt = new CompoundTag();
-        createPlayerEssence().saveNbtData(nbt);
+        createPlayerFlags().saveNbtData(nbt);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        createPlayerEssence().loadNbtData(nbt);
+        createPlayerFlags().loadNbtData(nbt);
     }
 }

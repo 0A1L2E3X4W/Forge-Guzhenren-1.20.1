@@ -20,20 +20,20 @@ public class EssenceSyncS2CPacket {
     }
 
     public EssenceSyncS2CPacket(FriendlyByteBuf buf) {
-        this.maxEssence = buf.readInt();
-        this.essence = buf.readFloat();
+        maxEssence = buf.readInt();
+        essence = buf.readFloat();
     }
 
     public void toBytes(FriendlyByteBuf buf) {
-        buf.writeInt(this.maxEssence);
-        buf.writeFloat(this.essence);
+        buf.writeInt(maxEssence);
+        buf.writeFloat(essence);
     }
 
     public void handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            ClientEssenceData.setEssence(this.essence);
-            ClientEssenceData.setMaxEssence(this.maxEssence);
+            ClientEssenceData.setEssence(essence);
+            ClientEssenceData.setMaxEssence(maxEssence);
         });
     }
 

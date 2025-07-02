@@ -1,13 +1,14 @@
 package com.alex.guzhenren.event;
 
 import com.alex.guzhenren.Guzhenren;
-import com.alex.guzhenren.capability.PlayerAptitudes;
-import com.alex.guzhenren.capability.PlayerAptitudesProvider;
-import com.alex.guzhenren.capability.PlayerEssence;
-import com.alex.guzhenren.capability.PlayerEssenceProvider;
+import com.alex.guzhenren.capability.*;
 import com.alex.guzhenren.networking.ModMessage;
 import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
 import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
+import com.alex.guzhenren.networking.packet.FlagsSyncS2CPacket;
+import com.alex.guzhenren.utils.enums.ModRank;
+import com.alex.guzhenren.utils.enums.ModStage;
+import com.alex.guzhenren.utils.enums.ModTalent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -36,6 +37,10 @@ public class ModCommonEvent {
                 serverPlayer.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).ifPresent(aptitudes -> {
                     AptitudesSyncS2CPacket.send(serverPlayer, aptitudes);
                 });
+
+                serverPlayer.getCapability(PlayerFlagsProvider.PLAYER_FLAGS).ifPresent(flags -> {
+                    FlagsSyncS2CPacket.send(serverPlayer, flags);
+                });
             }
         }
     }
@@ -52,6 +57,11 @@ public class ModCommonEvent {
             if (!event.getObject().getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).isPresent()) {
                 event.addCapability(ResourceLocation.fromNamespaceAndPath(
                         Guzhenren.MOD_ID, "property_aptitudes"), new PlayerAptitudesProvider());
+            }
+
+            if (!event.getObject().getCapability(PlayerFlagsProvider.PLAYER_FLAGS).isPresent()) {
+                event.addCapability(ResourceLocation.fromNamespaceAndPath(
+                        Guzhenren.MOD_ID, "property_flags"), new PlayerFlagsProvider());
             }
         }
     }
@@ -71,6 +81,12 @@ public class ModCommonEvent {
                     newStore.copyFrom(oldStore);
                 });
             });
+
+            event.getOriginal().getCapability(PlayerFlagsProvider.PLAYER_FLAGS).ifPresent(oldStore -> {
+                event.getOriginal().getCapability(PlayerFlagsProvider.PLAYER_FLAGS).ifPresent(newStore -> {
+                    newStore.copyFrom(oldStore);
+                });
+            });
         }
     }
 
@@ -79,10 +95,8 @@ public class ModCommonEvent {
         if(event.side == LogicalSide.SERVER) {
 
             event.player.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE).ifPresent(essence -> {
-
                 int playerMaxEssence = essence.getMaxEssence();
                 float playerEssence = essence.getEssence();
-
                 if (playerEssence < playerMaxEssence) {
                     essence.addEssence((float) playerMaxEssence / (20*60*10));
                     EssenceSyncS2CPacket.send((ServerPlayer) event.player, essence);
@@ -90,9 +104,7 @@ public class ModCommonEvent {
             });
 
             event.player.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).ifPresent(aptitudes -> {
-
                 float playerLifespan = aptitudes.getLifespan();
-
                 if (playerLifespan > 0.1f) {
                     aptitudes.subLifespan(1f / (20 * 60 * 10));
                     AptitudesSyncS2CPacket.send((ServerPlayer) event.player, aptitudes);
@@ -105,5 +117,6 @@ public class ModCommonEvent {
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
         event.register(PlayerEssence.class);
         event.register(PlayerAptitudes.class);
+        event.register(PlayerFlags.class);
     }
 }

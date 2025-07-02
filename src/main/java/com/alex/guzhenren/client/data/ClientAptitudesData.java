@@ -17,26 +17,26 @@ public class ClientAptitudesData {
 
     // GETTER & SETTER
     public static float getLifespan() { return lifespan; }
-    public static void setLifespan(float val) { ClientAptitudesData.lifespan = val; }
+    public static void setLifespan(float v) { ClientAptitudesData.lifespan = v; }
 
     public static float getThoughts() { return thoughts; }
-    public static void setThoughts(float val) { ClientAptitudesData.thoughts = val; }
+    public static void setThoughts(float v) { ClientAptitudesData.thoughts = v; }
 
     public static int getSoul() { return soul; }
-    public static void setSoul(int val) { ClientAptitudesData.soul = val; }
+    public static void setSoul(int i) { ClientAptitudesData.soul = i; }
 
     public static int getLuck() { return luck; }
-    public static void setLuck(int val) { ClientAptitudesData.luck = val; }
+    public static void setLuck(int i) { ClientAptitudesData.luck = i; }
 
     public static int getMoral() { return moral; }
-    public static void setMoral(int val) { ClientAptitudesData.moral = val; }
+    public static void setMoral(int i) { ClientAptitudesData.moral = i; }
 
     public static ModRank getRank() { return rank; }
-    public static void setRank(ModRank val) { ClientAptitudesData.rank = val; }
+    public static void setRank(ModRank rank) { ClientAptitudesData.rank = rank; }
 
     public static ModStage getStage() { return stage; }
-    public static void setStage(ModStage val) { ClientAptitudesData.stage = val; }
+    public static void setStage(ModStage stage) { ClientAptitudesData.stage = stage; }
 
     public static ModTalent getTalent() { return talent; }
-    public static void setTalent(ModTalent val) { ClientAptitudesData.talent = val; }
+    public static void setTalent(ModTalent talent) { ClientAptitudesData.talent = talent; }
 }
