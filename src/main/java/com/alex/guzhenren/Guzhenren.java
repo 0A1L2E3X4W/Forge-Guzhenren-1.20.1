@@ -5,6 +5,8 @@ import com.alex.guzhenren.item.ModCreativeModeTabs;
 import com.alex.guzhenren.item.ModItems;
 import com.alex.guzhenren.networking.ModMessage;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -34,5 +36,10 @@ public class Guzhenren {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         ModMessage.register();
+
+        event.enqueueWork(() -> {
+            assert ModBlocks.MOON_ORCHID.getId() != null;
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.MOON_ORCHID.getId(), ModBlocks.POTTED_MOON_ORCHID);
+        });
     }
 }

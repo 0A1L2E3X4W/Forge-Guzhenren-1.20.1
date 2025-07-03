@@ -33,6 +33,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.DEEPSLATE_PRIMEVAL_STONE_ORE.get());
                         output.accept(ModBlocks.NETHER_PRIMEVAL_STONE_ORE.get());
                         output.accept(ModBlocks.END_STONE_PRIMEVAL_STONE_ORE.get());
+
+                        output.accept(ModBlocks.MOON_ORCHID.get());
                     })).build());
 
     public static void register(IEventBus eventBus) {

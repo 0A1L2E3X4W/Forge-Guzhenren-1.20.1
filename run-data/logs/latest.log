@@ -1,33 +1,33 @@
-[037月2025 01:17:25.601] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\ALEX\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, guzhenren, --all, --output, C:\ALEX\Modding\forge-1.20.1-47.4.0-mdk\src\generated\resources, --existing, C:\ALEX\Modding\forge-1.20.1-47.4.0-mdk\src\main\resources]
-[037月2025 01:17:25.608] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.15 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[037月2025 01:17:25.695] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[037月2025 01:17:25.732] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/ALEX/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[037月2025 01:17:26.119] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ALEX\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.0\f0c0b352173d0a378cbdcec9cfc4ba65899a721\javafmllanguage-1.20.1-47.4.0.jar is missing mods.toml file
-[037月2025 01:17:26.121] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ALEX\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.0\e862740d8c84d08dbfedea412bef88fe42e727c5\lowcodelanguage-1.20.1-47.4.0.jar is missing mods.toml file
-[037月2025 01:17:26.122] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ALEX\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.0\5719b3a297a33f877ed5dde4cb4bd75c859096af\mclanguage-1.20.1-47.4.0.jar is missing mods.toml file
-[037月2025 01:17:26.124] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ALEX\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.0\235975dafa4309945b59c56b53f31dc5b65a6051\fmlcore-1.20.1-47.4.0.jar is missing mods.toml file
-[037月2025 01:17:26.294] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[037月2025 01:17:27.709] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\ALEX\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, guzhenren, --all, --output, C:\ALEX\Modding\forge-1.20.1-47.4.0-mdk\src\generated\resources, --existing, C:\ALEX\Modding\forge-1.20.1-47.4.0-mdk\src\main\resources]
-[037月2025 01:17:28.127] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [guzhenren]
-[037月2025 01:17:32.104] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.0, for MC 1.20.1 with MCP 20230612.114412
-[037月2025 01:17:32.106] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.0 Initialized
-[037月2025 01:17:32.737] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ALEX/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[037月2025 01:17:32.738] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ALEX/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[037月2025 01:17:32.991] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Languages: en_us
-[037月2025 01:17:33.006] [main/INFO] [net.minecraft.data.DataGenerator/]: Languages: en_us finished after 15 ms
-[037月2025 01:17:33.007] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Languages: zh_cn
-[037月2025 01:17:33.007] [main/INFO] [net.minecraft.data.DataGenerator/]: Languages: zh_cn finished after 0 ms
-[037月2025 01:17:33.008] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[037月2025 01:17:33.044] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 35 ms
-[037月2025 01:17:33.044] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[037月2025 01:17:33.076] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 31 ms
-[037月2025 01:17:33.076] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: guzhenren
-[037月2025 01:17:33.086] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: guzhenren finished after 10 ms
-[037月2025 01:17:33.087] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: guzhenren
-[037月2025 01:17:33.192] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: guzhenren finished after 105 ms
-[037月2025 01:17:33.192] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id guzhenren
-[037月2025 01:17:33.200] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id guzhenren finished after 8 ms
-[037月2025 01:17:33.200] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id guzhenren
-[037月2025 01:17:33.201] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id guzhenren finished after 0 ms
-[037月2025 01:17:33.201] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 211 ms
-[037月2025 01:17:33.206] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 48, old count: 48, new count: 49, removed stale: 0, written: 0
+[037月2025 23:14:36.992] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\ALEX\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, guzhenren, --all, --output, C:\ALEX\Modding\forge-1.20.1-47.4.0-mdk\src\generated\resources, --existing, C:\ALEX\Modding\forge-1.20.1-47.4.0-mdk\src\main\resources]
+[037月2025 23:14:36.999] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.15 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[037月2025 23:14:37.129] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[037月2025 23:14:37.163] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/ALEX/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[037月2025 23:14:37.473] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ALEX\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.0\f0c0b352173d0a378cbdcec9cfc4ba65899a721\javafmllanguage-1.20.1-47.4.0.jar is missing mods.toml file
+[037月2025 23:14:37.474] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ALEX\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.0\e862740d8c84d08dbfedea412bef88fe42e727c5\lowcodelanguage-1.20.1-47.4.0.jar is missing mods.toml file
+[037月2025 23:14:37.475] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ALEX\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.0\5719b3a297a33f877ed5dde4cb4bd75c859096af\mclanguage-1.20.1-47.4.0.jar is missing mods.toml file
+[037月2025 23:14:37.477] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ALEX\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.0\235975dafa4309945b59c56b53f31dc5b65a6051\fmlcore-1.20.1-47.4.0.jar is missing mods.toml file
+[037月2025 23:14:37.628] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[037月2025 23:14:39.059] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\ALEX\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, guzhenren, --all, --output, C:\ALEX\Modding\forge-1.20.1-47.4.0-mdk\src\generated\resources, --existing, C:\ALEX\Modding\forge-1.20.1-47.4.0-mdk\src\main\resources]
+[037月2025 23:14:39.562] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [guzhenren]
+[037月2025 23:14:43.186] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.0, for MC 1.20.1 with MCP 20230612.114412
+[037月2025 23:14:43.189] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.0 Initialized
+[037月2025 23:14:43.824] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ALEX/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[037月2025 23:14:43.825] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ALEX/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.0_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.0_mapped_parchment_2023.09.03-1.20.1.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[037月2025 23:14:44.149] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Languages: en_us
+[037月2025 23:14:44.159] [main/INFO] [net.minecraft.data.DataGenerator/]: Languages: en_us finished after 8 ms
+[037月2025 23:14:44.159] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Languages: zh_cn
+[037月2025 23:14:44.159] [main/INFO] [net.minecraft.data.DataGenerator/]: Languages: zh_cn finished after 0 ms
+[037月2025 23:14:44.160] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[037月2025 23:14:44.200] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 41 ms
+[037月2025 23:14:44.202] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[037月2025 23:14:44.226] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 24 ms
+[037月2025 23:14:44.226] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: guzhenren
+[037月2025 23:14:44.240] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: guzhenren finished after 13 ms
+[037月2025 23:14:44.240] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: guzhenren
+[037月2025 23:14:44.357] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: guzhenren finished after 117 ms
+[037月2025 23:14:44.357] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id guzhenren
+[037月2025 23:14:44.363] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id guzhenren finished after 5 ms
+[037月2025 23:14:44.363] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id guzhenren
+[037月2025 23:14:44.363] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id guzhenren finished after 0 ms
+[037月2025 23:14:44.364] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 214 ms
+[037月2025 23:14:44.368] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 56, old count: 56, new count: 57, removed stale: 0, written: 0

@@ -27,6 +27,9 @@ public class ModLangZhCnProvider extends LanguageProvider {
         addBlock(ModBlocks.NETHER_PRIMEVAL_STONE_ORE, "下界元石矿");
         addBlock(ModBlocks.END_STONE_PRIMEVAL_STONE_ORE, "末地元石矿");
 
+        addBlock(ModBlocks.MOON_ORCHID, "月兰花");
+        addBlock(ModBlocks.POTTED_MOON_ORCHID, "月兰花盆栽");
+
         add("creative_tab.gu_material_tab", "蛊材类");
         add("creative_tab.gu_world_tab", "蛊界方块");
 

@@ -27,6 +27,9 @@ public class ModLangEnUsProvider extends LanguageProvider {
         addBlock(ModBlocks.NETHER_PRIMEVAL_STONE_ORE, "Nether Primeval Stone Ore");
         addBlock(ModBlocks.END_STONE_PRIMEVAL_STONE_ORE, "End Stone Primeval Stone Ore");
 
+        addBlock(ModBlocks.MOON_ORCHID, "Moon Orchid");
+        addBlock(ModBlocks.POTTED_MOON_ORCHID, "Potted Moon Orchid");
+
         add("creative_tab.gu_material_tab", "Gu Materials");
         add("creative_tab.gu_world_tab", "Gu World Block");
 

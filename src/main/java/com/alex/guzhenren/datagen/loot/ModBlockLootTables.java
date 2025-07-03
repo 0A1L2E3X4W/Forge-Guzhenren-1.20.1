@@ -25,25 +25,28 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         // DROP SELF
-        this.dropSelf(ModBlocks.PRIMEVAL_STONE_BLOCK.get());
+        dropSelf(ModBlocks.PRIMEVAL_STONE_BLOCK.get());
 
         // CUSTOM ORE DROP
-        this.add(ModBlocks.PRIMEVAL_STONE_ORE.get(),
+        add(ModBlocks.PRIMEVAL_STONE_ORE.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.PRIMEVAL_STONE_ORE.get(), ModItems.PRIMEVAL_STONE.get()));
-        this.add(ModBlocks.DEEPSLATE_PRIMEVAL_STONE_ORE.get(),
+        add(ModBlocks.DEEPSLATE_PRIMEVAL_STONE_ORE.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.DEEPSLATE_PRIMEVAL_STONE_ORE.get(), ModItems.PRIMEVAL_STONE.get()));
-        this.add(ModBlocks.END_STONE_PRIMEVAL_STONE_ORE.get(),
+        add(ModBlocks.END_STONE_PRIMEVAL_STONE_ORE.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.END_STONE_PRIMEVAL_STONE_ORE.get(), ModItems.PRIMEVAL_STONE.get()));
-        this.add(ModBlocks.NETHER_PRIMEVAL_STONE_ORE.get(),
+        add(ModBlocks.NETHER_PRIMEVAL_STONE_ORE.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.NETHER_PRIMEVAL_STONE_ORE.get(), ModItems.PRIMEVAL_STONE.get()));
+
+        // CUSTOM FLOWER
+        dropSelf(ModBlocks.MOON_ORCHID.get());
+        add(ModBlocks.POTTED_MOON_ORCHID.get(), createPotFlowerItemTable(ModBlocks.MOON_ORCHID.get()));
     }
 
     protected LootTable.Builder createCopperLikeOreDrops(Block block, Item item) {
-        return createSilkTouchDispatchTable(block,
-                this.applyExplosionDecay(block,
-                        LootItem.lootTableItem(item)
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(7.0F, 14.0F)))
-                                .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+        return createSilkTouchDispatchTable(block, applyExplosionDecay(block,
+                LootItem.lootTableItem(item)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(7.0F, 14.0F)))
+                        .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
     }
 
     @Override

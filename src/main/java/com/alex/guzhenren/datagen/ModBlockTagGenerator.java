@@ -19,14 +19,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 ModBlocks.PRIMEVAL_STONE_BLOCK.get(),
                 ModBlocks.PRIMEVAL_STONE_ORE.get(),
                 ModBlocks.DEEPSLATE_PRIMEVAL_STONE_ORE.get(),
                 ModBlocks.NETHER_PRIMEVAL_STONE_ORE.get(),
                 ModBlocks.END_STONE_PRIMEVAL_STONE_ORE.get());
 
-        this.tag(BlockTags.NEEDS_STONE_TOOL).add(
+        tag(BlockTags.NEEDS_STONE_TOOL).add(
                 ModBlocks.PRIMEVAL_STONE_BLOCK.get(),
                 ModBlocks.PRIMEVAL_STONE_ORE.get(),
                 ModBlocks.DEEPSLATE_PRIMEVAL_STONE_ORE.get(),
