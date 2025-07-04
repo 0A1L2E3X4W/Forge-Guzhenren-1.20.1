@@ -32,6 +32,7 @@ public class ModLangEnUsProvider extends LanguageProvider {
 
         add("creative_tab.gu_material_tab", "Gu Materials");
         add("creative_tab.gu_world_tab", "Gu World Block");
+        add("creative_tab.mortal_gu_tab", "Mortal Gu");
 
         add("guzhenren.text.lifespan", "Lifespan");
         add("guzhenren.text.screen_title", "TITLE");

@@ -32,6 +32,7 @@ public class ModLangZhCnProvider extends LanguageProvider {
 
         add("creative_tab.gu_material_tab", "蛊材类");
         add("creative_tab.gu_world_tab", "蛊界方块");
+        add("creative_tab.mortal_gu_tab", "凡蛊");
 
         add("guzhenren.text.lifespan", "寿命");
         add("guzhenren.text.screen_title", "TITLE");

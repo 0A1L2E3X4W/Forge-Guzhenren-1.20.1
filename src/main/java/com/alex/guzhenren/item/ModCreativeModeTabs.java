@@ -37,6 +37,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.MOON_ORCHID.get());
                     })).build());
 
+    public static final RegistryObject<CreativeModeTab> MORTAL_GU_TAB = CREATIVE_MODE_TABS.register("mortal_gu_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.HOPE.get()))
+                    .title(Component.translatable("creative_tab.mortal_gu_tab"))
+                    .displayItems(((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.HOPE.get());
+                    })).build());
+
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
     }
