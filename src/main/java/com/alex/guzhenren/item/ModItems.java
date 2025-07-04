@@ -14,8 +14,10 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Guzhenren.MOD_ID);
 
     // ========== GU MATERIALS ==========
-    public static final RegistryObject<Item> APERTURE = ITEMS.register("aperture", () -> new Item(new Item.Properties().stacksTo(64)));
-    public static final RegistryObject<Item> HUMAN_HEART = ITEMS.register("human_heart", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> APERTURE = ITEMS.register("aperture",
+            () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> HUMAN_HEART = ITEMS.register("human_heart",
+            () -> new Item(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> PRIMEVAL_STONE = ITEMS.register("primeval_stone",
             () -> new PrimevalStone(new Item.Properties().stacksTo(64), 4000));
 

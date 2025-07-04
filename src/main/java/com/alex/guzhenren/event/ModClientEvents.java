@@ -3,7 +3,7 @@ package com.alex.guzhenren.event;
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.client.gui.ClientStatsGuiOverlay;
 import com.alex.guzhenren.client.hud.ClientHudOverlay;
-import com.alex.guzhenren.utils.CustomKeyBindings;
+import com.alex.guzhenren.utils.ModKeyBindings;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
@@ -13,7 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-public class ClientEvent {
+public class ModClientEvents {
 
     @Mod.EventBusSubscriber(modid = Guzhenren.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvent {
@@ -25,7 +25,7 @@ public class ClientEvent {
 
         @SubscribeEvent
         public static void onKeyRegister(RegisterKeyMappingsEvent event) {
-            event.register(CustomKeyBindings.TEST_KEY);
+            event.register(ModKeyBindings.TEST_KEY);
         }
 
         @SubscribeEvent
@@ -40,9 +40,9 @@ public class ClientEvent {
 
         @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
-            Minecraft mc = Minecraft.getInstance();
-            if (CustomKeyBindings.TEST_KEY.consumeClick() && mc.player != null) {
-                mc.setScreen(new ClientStatsGuiOverlay());
+            Minecraft minecraft = Minecraft.getInstance();
+            if (ModKeyBindings.TEST_KEY.consumeClick() && minecraft.player != null) {
+                minecraft.setScreen(new ClientStatsGuiOverlay());
             }
         }
     }

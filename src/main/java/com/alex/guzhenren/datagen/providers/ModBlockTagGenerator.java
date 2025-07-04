@@ -1,4 +1,4 @@
-package com.alex.guzhenren.datagen;
+package com.alex.guzhenren.datagen.providers;
 
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.block.ModBlocks;
@@ -13,7 +13,9 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagGenerator extends BlockTagsProvider {
 
-    public ModBlockTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
+    public ModBlockTagGenerator(PackOutput output,
+                                CompletableFuture<HolderLookup.Provider> lookupProvider,
+                                @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, Guzhenren.MOD_ID, existingFileHelper);
     }
 

@@ -27,16 +27,16 @@ public class ModBlocks {
     // ========== ORES ==========
     public static final RegistryObject<Block> PRIMEVAL_STONE_ORE = registerBlock("primeval_stone_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
-                    .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(4, 8)));
+                    .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(5, 9)));
     public static final RegistryObject<Block> DEEPSLATE_PRIMEVAL_STONE_ORE = registerBlock("deepslate_primeval_stone_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
-                    .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(5, 10)));
+                    .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(6, 10)));
     public static final RegistryObject<Block> NETHER_PRIMEVAL_STONE_ORE = registerBlock("nether_primeval_stone_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.NETHERRACK)
-                    .strength(1f).requiresCorrectToolForDrops(), UniformInt.of(5, 10)));
+                    .strength(1f).requiresCorrectToolForDrops(), UniformInt.of(6, 10)));
     public static final RegistryObject<Block> END_STONE_PRIMEVAL_STONE_ORE = registerBlock("end_stone_primeval_stone_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.END_STONE)
-                    .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(5, 10)));
+                    .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(6, 10)));
 
     // ========== FLOWERS ==========
     public static final RegistryObject<Block> MOON_ORCHID = registerBlock("moon_orchid", MoonOrchid::new);

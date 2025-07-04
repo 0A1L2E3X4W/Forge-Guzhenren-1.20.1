@@ -1,4 +1,4 @@
-package com.alex.guzhenren.datagen;
+package com.alex.guzhenren.datagen.providers;
 
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.block.ModBlocks;
@@ -26,9 +26,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleBlockItemBlockTexture(ModBlocks.MOON_ORCHID);
     }
 
-    private void simpleBlockItemBlockTexture(RegistryObject<Block> block) {
-        assert block.getId() != null;
-        String path = block.getId().getPath();
+    private void simpleBlockItemBlockTexture(RegistryObject<Block> flowerBlock) {
+        assert flowerBlock.getId() != null;
+        String path = flowerBlock.getId().getPath();
         withExistingParent(path, mcLoc("item/generated"))
                 .texture("layer0", modLoc("block/" + path));
     }

@@ -1,6 +1,6 @@
 package com.alex.guzhenren.item.custom;
 
-import com.alex.guzhenren.capability.PlayerEssenceProvider;
+import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
 import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;

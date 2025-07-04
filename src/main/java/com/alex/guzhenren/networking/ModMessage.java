@@ -11,10 +11,11 @@ import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessage {
 
+    // INITIALIZE INSTANCE
     public static SimpleChannel INSTANCE;
     private static final String PROTOCOL_VERSION = "1.0";
-    private static final ResourceLocation CHANNEL_NAME = ResourceLocation.fromNamespaceAndPath(
-            Guzhenren.MOD_ID, "network");
+    private static final ResourceLocation CHANNEL_NAME =
+            ResourceLocation.fromNamespaceAndPath(Guzhenren.MOD_ID, "network");
 
     // packetId
     private static int packetId = 0;

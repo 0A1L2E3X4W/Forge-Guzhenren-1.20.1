@@ -12,8 +12,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModCreativeModeTabs {
 
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(
-            Registries.CREATIVE_MODE_TAB, Guzhenren.MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Guzhenren.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> GU_MATERIAL_TAB = CREATIVE_MODE_TABS.register("gu_material_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.PRIMEVAL_STONE.get()))

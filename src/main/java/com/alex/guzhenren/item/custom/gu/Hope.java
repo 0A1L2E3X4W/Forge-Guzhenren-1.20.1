@@ -1,8 +1,8 @@
 package com.alex.guzhenren.item.custom.gu;
 
-import com.alex.guzhenren.capability.PlayerAptitudesProvider;
-import com.alex.guzhenren.capability.PlayerEssenceProvider;
-import com.alex.guzhenren.capability.PlayerFlagsProvider;
+import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
+import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
+import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
 import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
 import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
 import com.alex.guzhenren.networking.packet.FlagsSyncS2CPacket;

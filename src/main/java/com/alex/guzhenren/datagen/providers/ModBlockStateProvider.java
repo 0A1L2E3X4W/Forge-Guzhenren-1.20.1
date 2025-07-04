@@ -1,9 +1,8 @@
-package com.alex.guzhenren.datagen;
+package com.alex.guzhenren.datagen.providers;
 
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.block.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -11,7 +10,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
-    public ModBlockStateProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
+    public ModBlockStateProvider(PackOutput output,
+                                 ExistingFileHelper existingFileHelper) {
         super(output, Guzhenren.MOD_ID, existingFileHelper);
     }
 

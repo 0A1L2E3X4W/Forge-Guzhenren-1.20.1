@@ -1,6 +1,9 @@
-package com.alex.guzhenren;
+package com.alex.guzhenren.datagen;
 
-import com.alex.guzhenren.datagen.*;
+import com.alex.guzhenren.Guzhenren;
+import com.alex.guzhenren.datagen.lang.ModLangEnUsProvider;
+import com.alex.guzhenren.datagen.lang.ModLangZhCnProvider;
+import com.alex.guzhenren.datagen.providers.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -12,7 +15,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = Guzhenren.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class GuzhenrenDataGenerator {
+public class ModDataGenerators {
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
@@ -38,6 +41,7 @@ public class GuzhenrenDataGenerator {
         // BLOCK TAG
         ModBlockTagGenerator blockTagGenerator = generator.addProvider(event.includeServer(),
                 new ModBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
-        generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(),
+                new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
     }
 }

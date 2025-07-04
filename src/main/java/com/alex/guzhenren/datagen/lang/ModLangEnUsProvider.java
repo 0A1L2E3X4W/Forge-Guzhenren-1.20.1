@@ -1,4 +1,4 @@
-package com.alex.guzhenren.datagen;
+package com.alex.guzhenren.datagen.lang;
 
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.block.ModBlocks;

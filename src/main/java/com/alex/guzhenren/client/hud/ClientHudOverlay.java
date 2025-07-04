@@ -55,7 +55,7 @@ public class ClientHudOverlay {
                 ModRank playerRank = ClientAptitudesData.getRank();
                 ModStage playerStage = ClientAptitudesData.getStage();
 
-                Minecraft mc = Minecraft.getInstance();
+                Minecraft minecraft = Minecraft.getInstance();
                 String text = String.format("%.1f", playerLifespan);
 
                 Component lifespanText = Component.translatable("guzhenren.text.lifespan").append(": " + text);
@@ -65,8 +65,8 @@ public class ClientHudOverlay {
                                 .append(" ")
                                 .append(Component.translatable(playerStage.getNameKey())));
 
-                guiGraphics.drawString(mc.font, lifespanText, x, y, TEXT_COLOR, true);
-                guiGraphics.drawString(mc.font, rankText, x, y + 12, TEXT_COLOR, true);
+                guiGraphics.drawString(minecraft.font, lifespanText, x, y, TEXT_COLOR, true);
+                guiGraphics.drawString(minecraft.font, rankText, x, y + 12, TEXT_COLOR, true);
     };
 
     // 绘制圆角矩形（简化版）

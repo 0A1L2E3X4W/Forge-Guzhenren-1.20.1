@@ -1,5 +1,6 @@
-package com.alex.guzhenren.capability;
+package com.alex.guzhenren.capability.providers;
 
+import com.alex.guzhenren.capability.PlayerEssence;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.capabilities.Capability;
@@ -11,33 +12,33 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class PlayerAptitudesProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+public class PlayerEssenceProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
 
-    public static Capability<PlayerAptitudes> PLAYER_APTITUDE = CapabilityManager.get(new CapabilityToken<PlayerAptitudes>() {});
+    public static Capability<PlayerEssence> PLAYER_ESSENCE = CapabilityManager.get(new CapabilityToken<>() {});
+    
+    private PlayerEssence playerEssence;
+    private final LazyOptional<PlayerEssence> optional = LazyOptional.of(this::createPlayerEssence);
 
-    private PlayerAptitudes playerAptitude;
-    private final LazyOptional<PlayerAptitudes> optional = LazyOptional.of(this::createPlayerAptitude);
-
-    private PlayerAptitudes createPlayerAptitude() {
-        if (this.playerAptitude == null) { this.playerAptitude = new PlayerAptitudes(); }
-        return this.playerAptitude;
+    private PlayerEssence createPlayerEssence() {
+        if (playerEssence == null) { playerEssence = new PlayerEssence(); }
+        return playerEssence;
     }
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction direction) {
-        if (capability == PLAYER_APTITUDE) { return optional.cast(); }
+        if (capability == PLAYER_ESSENCE) { return optional.cast(); }
         return LazyOptional.empty();
     }
 
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag nbt = new CompoundTag();
-        createPlayerAptitude().saveNbtData(nbt);
+        createPlayerEssence().saveNbtData(nbt);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        createPlayerAptitude().loadNbtData(nbt);
+        createPlayerEssence().loadNbtData(nbt);
     }
 }

@@ -347,10 +347,10 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 [037月2025 23:39:10.532] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.0, for MC 1.20.1 with MCP 20230612.114412
 [037月2025 23:39:10.536] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.0 Initialized
 [037月2025 23:39:10.538] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for guzhenren
-[037月2025 23:39:10.544] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.alex.guzhenren.event.ClientEvent$ClientForgeEvents to FORGE
-[037月2025 23:39:10.553] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.alex.guzhenren.event.ClientEvent$ClientModEvent to MOD
+[037月2025 23:39:10.544] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.alex.guzhenren.event.ModClientEvents$ClientForgeEvents to FORGE
+[037月2025 23:39:10.553] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.alex.guzhenren.event.ModClientEvents$ClientModEvent to MOD
 [037月2025 23:39:10.570] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.alex.guzhenren.event.ModCommonEvent to FORGE
-[037月2025 23:39:10.582] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.alex.guzhenren.GuzhenrenDataGenerator to MOD
+[037月2025 23:39:10.582] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.alex.guzhenren.datagen.ModDataGenerators to MOD
 [037月2025 23:39:10.640] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-client.toml for forge tracking
 [037月2025 23:39:10.641] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-server.toml for forge tracking
 [037月2025 23:39:10.641] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.ModLoadingContext/]: Attempted to register an empty config for type COMMON on mod forge

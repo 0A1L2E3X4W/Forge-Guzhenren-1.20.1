@@ -1,4 +1,4 @@
-package com.alex.guzhenren.datagen;
+package com.alex.guzhenren.datagen.providers;
 
 import com.alex.guzhenren.block.ModBlocks;
 import com.alex.guzhenren.item.ModItems;

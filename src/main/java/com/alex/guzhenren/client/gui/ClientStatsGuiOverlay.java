@@ -33,18 +33,18 @@ public class ClientStatsGuiOverlay extends Screen {
 
         guiGraphics.fillGradient(0, 0, this.width, this.height, BACKGROUND_COLOR, BACKGROUND_COLOR);
 
-        Minecraft mc = Minecraft.getInstance();
+        Minecraft minecraft = Minecraft.getInstance();
 
         float playerEssence = ClientEssenceData.getEssence();
         int playerMaxEssence = ClientEssenceData.getMaxEssence();
         String text = String.format("%.0f/%d", playerEssence, playerMaxEssence);
-        guiGraphics.drawString(mc.font, text, 20, 20, TEXT_COLOR, true);
+        guiGraphics.drawString(minecraft.font, text, 20, 20, TEXT_COLOR, true);
 
         Component component;
 
         float playerLifespan = ClientAptitudesData.getLifespan();
         component = Component.translatable("guzhenren.text.lifespan").append(": " + playerLifespan);
-        guiGraphics.drawString(mc.font, component, 20, 32, TEXT_COLOR, true);
+        guiGraphics.drawString(minecraft.font, component, 20, 32, TEXT_COLOR, true);
 
         float playerThoughts = ClientAptitudesData.getThoughts();
 

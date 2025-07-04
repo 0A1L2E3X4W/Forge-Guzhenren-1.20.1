@@ -15,12 +15,12 @@ public class PlayerEssence {
 
     // GETTER & SETTER
     public float getEssence() { return essence; }
-    public void setEssence(float val) { essence = val; }
-    public void addEssence(float val) { essence = Math.min(essence + val, maxEssence); }
-    public void subEssence(float val) { essence = Math.max(essence - val, 0); }
+    public void setEssence(float v) { essence = v; }
+    public void addEssence(float v) { essence = Math.min(essence + v, maxEssence); }
+    public void subEssence(float v) { essence = Math.max(essence - v, 0); }
 
     public int getMaxEssence() { return maxEssence; }
-    public void setMaxEssence(int val) { maxEssence = val; }
+    public void setMaxEssence(int i) { maxEssence = i; }
 
     // COPY FROM
     public void copyFrom(PlayerEssence source) {

@@ -15,7 +15,7 @@ public class PlayerFlags {
 
     // GETTER & SETTER
     public boolean isAwaken() { return isAwaken; }
-    public void setAwaken(boolean val) { isAwaken = val; }
+    public void setAwaken(boolean b) { isAwaken = b; }
 
     // COPY FROM
     public void copyFrom(PlayerFlags source) {

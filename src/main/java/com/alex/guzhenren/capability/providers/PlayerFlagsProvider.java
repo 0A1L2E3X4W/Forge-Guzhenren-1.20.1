@@ -1,5 +1,6 @@
-package com.alex.guzhenren.capability;
+package com.alex.guzhenren.capability.providers;
 
+import com.alex.guzhenren.capability.PlayerFlags;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.capabilities.Capability;
@@ -13,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class PlayerFlagsProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
 
-    public static Capability<PlayerFlags> PLAYER_FLAGS = CapabilityManager.get(new CapabilityToken<PlayerFlags>() {});
+    public static Capability<PlayerFlags> PLAYER_FLAGS = CapabilityManager.get(new CapabilityToken<>() {});
     
     private PlayerFlags playerFlags;
     private final LazyOptional<PlayerFlags> optional = LazyOptional.of(this::createPlayerFlags);

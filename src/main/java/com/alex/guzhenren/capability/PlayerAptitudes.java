@@ -39,38 +39,38 @@ public class PlayerAptitudes {
 
     // GETTER & SETTER
     public float getLifespan() { return lifespan; }
-    public void setLifespan(float val) { lifespan = val; }
-    public void addLifespan(float val) { lifespan += val; }
-    public void subLifespan(float val) { lifespan = Math.max(lifespan - val, 0); }
+    public void setLifespan(float v) { lifespan = v; }
+    public void addLifespan(float v) { lifespan += v; }
+    public void subLifespan(float v) { lifespan = Math.max(lifespan - v, 0); }
 
     public float getThoughts() { return thoughts; }
-    public void setThoughts(float val) { thoughts = val; }
-    public void addThoughts(float val) { thoughts += val; }
-    public void subThoughts(float val) { thoughts = Math.max(thoughts - val, 0); }
+    public void setThoughts(float v) { thoughts = v; }
+    public void addThoughts(float v) { thoughts += v; }
+    public void subThoughts(float v) { thoughts = Math.max(thoughts - v, 0); }
 
     public int getSoul() { return soul; }
-    public void setSoul(int val) { soul = val; }
-    public void addSoul(int val) { soul += val; }
-    public void subSoul(int val) { soul = Math.max(soul - val, 0); }
+    public void setSoul(int i) { soul = i; }
+    public void addSoul(int i) { soul += i; }
+    public void subSoul(int i) { soul = Math.max(soul - i, 0); }
 
     public int getLuck() { return luck; }
-    public void setLuck(int val) { luck = val; }
-    public void addLuck(int val) { luck += val; }
-    public void subLuck(int val) { luck = Math.max(luck - val, 0); }
+    public void setLuck(int i) { luck = i; }
+    public void addLuck(int i) { luck += i; }
+    public void subLuck(int i) { luck = Math.max(luck - i, 0); }
 
     public int getMoral() { return moral; }
-    public void setMoral(int val) { moral = val; }
-    public void addMoral(int val) { moral += val; }
-    public void subMoral(int val) { moral = Math.max(moral - val, 0); }
+    public void setMoral(int i) { moral = i; }
+    public void addMoral(int i) { moral += i; }
+    public void subMoral(int i) { moral = Math.max(moral - i, 0); }
 
     public ModRank getRank() { return rank; }
-    public void setRank(ModRank val) { rank = val; }
+    public void setRank(ModRank modRank) { rank = modRank; }
 
     public ModStage getStage() { return stage; }
-    public void setStage(ModStage val) { stage = val; }
+    public void setStage(ModStage modStage) { stage = modStage; }
 
     public ModTalent getTalent() { return talent; }
-    public void setTalent(ModTalent val) { talent = val; }
+    public void setTalent(ModTalent modTalent) { talent = modTalent; }
 
     // COPY FROM
     public void copyFrom(PlayerAptitudes source) {

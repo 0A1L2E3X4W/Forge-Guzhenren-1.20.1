@@ -2,13 +2,12 @@ package com.alex.guzhenren.event;
 
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.capability.*;
-import com.alex.guzhenren.networking.ModMessage;
+import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
+import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
+import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
 import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
 import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
 import com.alex.guzhenren.networking.packet.FlagsSyncS2CPacket;
-import com.alex.guzhenren.utils.enums.ModRank;
-import com.alex.guzhenren.utils.enums.ModStage;
-import com.alex.guzhenren.utils.enums.ModTalent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
