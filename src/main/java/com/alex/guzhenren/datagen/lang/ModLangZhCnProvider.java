@@ -21,6 +21,10 @@ public class ModLangZhCnProvider extends LanguageProvider {
 
         addItem(ModItems.HOPE, "希望蛊");
 
+        addItem(ModItems.LIQUOR, "酒");
+        addItem(ModItems.YEAR_LIFESPAN_GU, "一年寿蛊");
+        addItem(ModItems.TEN_YEAR_LIFESPAN_GU, "十年寿蛊");
+
         addBlock(ModBlocks.PRIMEVAL_STONE_BLOCK, "元石块");
         addBlock(ModBlocks.PRIMEVAL_STONE_ORE, "元石矿");
         addBlock(ModBlocks.DEEPSLATE_PRIMEVAL_STONE_ORE, "深层元石矿");

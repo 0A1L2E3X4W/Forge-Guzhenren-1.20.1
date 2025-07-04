@@ -22,6 +22,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.PRIMEVAL_STONE.get());
 
         basicItem(ModItems.HOPE.get());
+        basicItem(ModItems.YEAR_LIFESPAN_GU.get());
+        basicItem(ModItems.TEN_YEAR_LIFESPAN_GU.get());
+
+        basicItem(ModItems.LIQUOR.get());
 
         simpleBlockItemBlockTexture(ModBlocks.MOON_ORCHID);
     }

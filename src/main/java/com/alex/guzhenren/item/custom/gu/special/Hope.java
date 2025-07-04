@@ -1,4 +1,4 @@
-package com.alex.guzhenren.item.custom.gu;
+package com.alex.guzhenren.item.custom.gu.special;
 
 import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
 import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;

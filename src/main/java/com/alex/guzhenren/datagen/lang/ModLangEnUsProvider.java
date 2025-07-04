@@ -20,6 +20,10 @@ public class ModLangEnUsProvider extends LanguageProvider {
         addItem(ModItems.PRIMEVAL_STONE, "Primeval Stone");
 
         addItem(ModItems.HOPE, "Hope Gu");
+        addItem(ModItems.YEAR_LIFESPAN_GU, "Year Lifespan Gu");
+        addItem(ModItems.TEN_YEAR_LIFESPAN_GU, "Ten Years Lifespan Gu");
+
+        addItem(ModItems.LIQUOR, "Liquor");
 
         addBlock(ModBlocks.PRIMEVAL_STONE_BLOCK, "Primeval Stone Block");
         addBlock(ModBlocks.PRIMEVAL_STONE_ORE, "Primeval Stone Ore");

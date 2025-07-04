@@ -22,6 +22,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.PRIMEVAL_STONE.get());
                         output.accept(ModItems.APERTURE.get());
                         output.accept(ModItems.HUMAN_HEART.get());
+                        output.accept(ModItems.LIQUOR.get());
                     })).build());
 
     public static final RegistryObject<CreativeModeTab> GU_WORLD_TAB = CREATIVE_MODE_TABS.register("gu_world_tab",
@@ -33,7 +34,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.DEEPSLATE_PRIMEVAL_STONE_ORE.get());
                         output.accept(ModBlocks.NETHER_PRIMEVAL_STONE_ORE.get());
                         output.accept(ModBlocks.END_STONE_PRIMEVAL_STONE_ORE.get());
-
                         output.accept(ModBlocks.MOON_ORCHID.get());
                     })).build());
 

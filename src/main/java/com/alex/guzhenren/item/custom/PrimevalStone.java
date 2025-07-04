@@ -25,7 +25,6 @@ public class PrimevalStone extends Item {
             @NotNull Level level,
             @NotNull Player player,
             @NotNull InteractionHand usedHand) {
-
         ItemStack itemStack = player.getItemInHand(usedHand);
 
         if (level.isClientSide()) {
