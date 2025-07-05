@@ -16,8 +16,9 @@ import org.slf4j.Logger;
 
 @Mod(Guzhenren.MOD_ID)
 public class Guzhenren {
+
     public static final String MOD_ID = "guzhenren";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public Guzhenren(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();

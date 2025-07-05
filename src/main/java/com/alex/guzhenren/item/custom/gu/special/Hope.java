@@ -7,21 +7,25 @@ import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
 import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
 import com.alex.guzhenren.networking.packet.FlagsSyncS2CPacket;
 import com.alex.guzhenren.utils.enums.ModTalent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Hope extends Item {
 
-    public Hope(Properties pProperties) {
-        super(pProperties);
+    public Hope(Properties properties) {
+        super(properties);
     }
 
     @Override
@@ -71,6 +75,19 @@ public class Hope extends Item {
 
         if (!player.getAbilities().instabuild) { itemStack.shrink(1); }
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
+    }
+
+    @Override
+    public void appendHoverText(
+            @NotNull ItemStack itemStack,
+            @Nullable Level level,
+            @NotNull List<Component> tooltips,
+            @NotNull TooltipFlag isAdvanced) {
+
+        tooltips.add(Component.translatable("tooltip.guzhenren.hope")
+                .withStyle(style -> style.withColor(0xFFD700)));
+
+        super.appendHoverText(itemStack, level, tooltips, isAdvanced);
     }
 
     private ModTalent getRandomTalent() {

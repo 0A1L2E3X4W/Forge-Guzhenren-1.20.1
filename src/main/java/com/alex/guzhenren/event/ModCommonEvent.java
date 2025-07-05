@@ -17,6 +17,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
@@ -104,8 +105,9 @@ public class ModCommonEvent {
 
             event.player.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).ifPresent(aptitudes -> {
                 float playerLifespan = aptitudes.getLifespan();
-                if (playerLifespan > 0.1f) {
-                    aptitudes.subLifespan(1f / (20 * 60 * 10));
+                if (playerLifespan > 0.1F) {
+                    aptitudes.subLifespan(1.0F / (20.0F * 60.0F * 10.0F));
+                    aptitudes.subThoughts(100.0F / (20.0F * 60.0F * 10.0F));
                     AptitudesSyncS2CPacket.send((ServerPlayer) event.player, aptitudes);
                 }
             });
@@ -117,5 +119,28 @@ public class ModCommonEvent {
         event.register(PlayerEssence.class);
         event.register(PlayerAptitudes.class);
         event.register(PlayerFlags.class);
+    }
+
+    // 玩家睡觉事件
+    @SubscribeEvent
+    public static void onPlayerWakeUp(PlayerWakeUpEvent event) {
+
+        Player player = event.getEntity();
+        if (player.level().isClientSide()) {
+            return;
+        }
+
+        if (!event.updateLevel()) {
+            player.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE).ifPresent(essence -> {
+                essence.setEssence(essence.getMaxEssence());
+                EssenceSyncS2CPacket.send((ServerPlayer) player, essence);
+            });
+
+            player.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).ifPresent(aptitudes -> {
+                float currentThoughts = aptitudes.getThoughts();
+                if (currentThoughts < 800.0F) { aptitudes.setThoughts(800.0F); }
+                AptitudesSyncS2CPacket.send((ServerPlayer) player, aptitudes);
+            });
+        }
     }
 }

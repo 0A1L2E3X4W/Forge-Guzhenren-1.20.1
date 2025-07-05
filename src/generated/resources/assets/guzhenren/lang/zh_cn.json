@@ -30,14 +30,18 @@
   "guzhenren.talent.d": "丁等",
   "guzhenren.talent.null": "无",
   "guzhenren.talent.ten_extreme": "十绝体",
+  "guzhenren.text.essence": "真元",
   "guzhenren.text.lifespan": "寿命",
   "guzhenren.text.rank": "修为",
   "guzhenren.text.screen_title": "TITLE",
+  "guzhenren.text.thoughts": "念头",
   "item.guzhenren.aperture": "人窍",
   "item.guzhenren.hope": "希望蛊",
   "item.guzhenren.human_heart": "人心",
   "item.guzhenren.liquor": "酒",
   "item.guzhenren.primeval_stone": "元石",
   "item.guzhenren.ten_years_lifespan": "十年寿蛊",
-  "item.guzhenren.year_lifespan": "一年寿蛊"
+  "item.guzhenren.year_lifespan": "一年寿蛊",
+  "tooltip.guzhenren.hope": "开窍!!",
+  "tooltip.guzhenren.primeval_stone": "蛊界凡人的通用货币，可以为蛊师提供真元"
 }

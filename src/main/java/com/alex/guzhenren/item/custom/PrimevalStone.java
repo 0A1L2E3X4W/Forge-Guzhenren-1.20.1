@@ -2,14 +2,19 @@ package com.alex.guzhenren.item.custom;
 
 import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
 import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class PrimevalStone extends Item {
 
@@ -50,5 +55,18 @@ public class PrimevalStone extends Item {
         }
 
         return InteractionResultHolder.fail(itemStack);
+    }
+
+    @Override
+    public void appendHoverText(
+            @NotNull ItemStack itemStack,
+            @Nullable Level level,
+            @NotNull List<Component> tooltips,
+            @NotNull TooltipFlag isAdvanced) {
+
+        tooltips.add(Component.translatable("tooltip.guzhenren.primeval_stone")
+                .withStyle(style -> style.withColor(0x87CEFA)));
+
+        super.appendHoverText(itemStack, level, tooltips, isAdvanced);
     }
 }

@@ -22,7 +22,7 @@ public class ClientStatsGuiOverlay extends Screen {
     }
 
     private static final int TEXT_COLOR = 0xFFFFFF;
-    private static final int BACKGROUND_COLOR = 0xFF000000;
+    private static final int BACKGROUND_COLOR = 0xDD000000;
 
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
@@ -31,22 +31,35 @@ public class ClientStatsGuiOverlay extends Screen {
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
 
-        guiGraphics.fillGradient(0, 0, this.width, this.height, BACKGROUND_COLOR, BACKGROUND_COLOR);
+        int guiWidth = (int) (this.width * 0.75F);
+        int guiHeight = (int) (this.width * 0.75F);
+        int leftPos = (this.width - guiWidth) / 2;
+        int topPos = (this.height - guiHeight) / 2;
+
+        guiGraphics.fillGradient(
+                0, 0,
+                this.width, this.height,
+                BACKGROUND_COLOR, BACKGROUND_COLOR);
 
         Minecraft minecraft = Minecraft.getInstance();
+        Component component;
+        String text;
 
         float playerEssence = ClientEssenceData.getEssence();
         int playerMaxEssence = ClientEssenceData.getMaxEssence();
-        String text = String.format("%.0f/%d", playerEssence, playerMaxEssence);
-        guiGraphics.drawString(minecraft.font, text, 20, 20, TEXT_COLOR, true);
-
-        Component component;
+        text = String.format("%.0f/%d", playerEssence, playerMaxEssence);
+        component = Component.translatable("guzhenren.text.essence").append(": " + text);
+        guiGraphics.drawString(minecraft.font, component, 20, 20, TEXT_COLOR, true);
 
         float playerLifespan = ClientAptitudesData.getLifespan();
-        component = Component.translatable("guzhenren.text.lifespan").append(": " + playerLifespan);
-        guiGraphics.drawString(minecraft.font, component, 20, 32, TEXT_COLOR, true);
+        text = String.format("%.1f", playerLifespan);
+        component = Component.translatable("guzhenren.text.lifespan").append(": " + text);
+        guiGraphics.drawString(minecraft.font, component, 20, 35, TEXT_COLOR, true);
 
         float playerThoughts = ClientAptitudesData.getThoughts();
+        text = String.format("%.1f", playerThoughts);
+        component = Component.translatable("guzhenren.text.thoughts").append(": " + text);
+        guiGraphics.drawString(minecraft.font, component, 20, 50, TEXT_COLOR, true);
 
         int playerLuck = ClientAptitudesData.getLuck();
         int playerSoul = ClientAptitudesData.getSoul();

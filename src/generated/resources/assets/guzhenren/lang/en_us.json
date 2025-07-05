@@ -30,14 +30,18 @@
   "guzhenren.talent.d": "D",
   "guzhenren.talent.null": "Ordinary",
   "guzhenren.talent.ten_extreme": "Ten Extreme Physique",
+  "guzhenren.text.essence": "Essence",
   "guzhenren.text.lifespan": "Lifespan",
   "guzhenren.text.rank": "Rank",
   "guzhenren.text.screen_title": "TITLE",
+  "guzhenren.text.thoughts": "Thoughts",
   "item.guzhenren.aperture": "Aperture",
   "item.guzhenren.hope": "Hope Gu",
   "item.guzhenren.human_heart": "Human Heart",
   "item.guzhenren.liquor": "Liquor",
   "item.guzhenren.primeval_stone": "Primeval Stone",
   "item.guzhenren.ten_years_lifespan": "Ten Years Lifespan Gu",
-  "item.guzhenren.year_lifespan": "Year Lifespan Gu"
+  "item.guzhenren.year_lifespan": "Year Lifespan Gu",
+  "tooltip.guzhenren.hope": "Awaken Aperture!!",
+  "tooltip.guzhenren.primeval_stone": "The common currency for mortals in the GU world,\nwhich can provide primeval essence to the GU Master."
 }
