@@ -22,9 +22,13 @@ public class ModLangZhCnProvider extends LanguageProvider {
         addItem(ModItems.PRIMEVAL_STONE, "元石");
 
         // MORTAL GU
-        addItem(ModItems.HOPE, "希望蛊");
+        addItem(ModItems.HOPE_GU, "希望蛊");
+
         addItem(ModItems.YEAR_LIFESPAN_GU, "一年寿蛊");
         addItem(ModItems.TEN_YEAR_LIFESPAN_GU, "十年寿蛊");
+
+        addItem(ModItems.PRIMEVAL_ELDER_GU_3, "三转元老蛊");
+        addItem(ModItems.PRIMEVAL_ELDER_GU_4, "四转元老蛊");
 
         // FOOD
         addItem(ModItems.LIQUOR, "酒");
@@ -63,6 +67,7 @@ public class ModLangZhCnProvider extends LanguageProvider {
         add("guzhenren.text.essence", "真元");
         add("guzhenren.text.lifespan", "寿命");
         add("guzhenren.text.thoughts", "念头");
+        add("guzhenren.text.storage", "元石存储");
     }
 
     private void addModTalentTranslations() {
@@ -83,7 +88,7 @@ public class ModLangZhCnProvider extends LanguageProvider {
     }
 
     private void addModRankTranslations() {
-        add(ModRank.MORTAL.getNameKey(), "凡人");
+        add(ModRank.MORTAL.getNameKey(), "凡");
         add(ModRank.ONE.getNameKey(), "一转");
         add(ModRank.TWO.getNameKey(), "二转");
         add(ModRank.THREE.getNameKey(), "三转");

@@ -91,6 +91,14 @@ public class ModCommonEvent {
     }
 
     @SubscribeEvent
+    public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
+        event.register(PlayerEssence.class);
+        event.register(PlayerAptitudes.class);
+        event.register(PlayerFlags.class);
+    }
+
+    // 玩家每tick事件
+    @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if(event.side == LogicalSide.SERVER) {
 
@@ -112,13 +120,6 @@ public class ModCommonEvent {
                 }
             });
         }
-    }
-
-    @SubscribeEvent
-    public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
-        event.register(PlayerEssence.class);
-        event.register(PlayerAptitudes.class);
-        event.register(PlayerFlags.class);
     }
 
     // 玩家睡觉事件

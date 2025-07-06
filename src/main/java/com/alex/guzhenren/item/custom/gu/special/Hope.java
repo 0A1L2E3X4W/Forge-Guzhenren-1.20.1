@@ -3,16 +3,17 @@ package com.alex.guzhenren.item.custom.gu.special;
 import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
 import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
 import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
+import com.alex.guzhenren.item.custom.ModCustomItem;
 import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
 import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
 import com.alex.guzhenren.networking.packet.FlagsSyncS2CPacket;
+import com.alex.guzhenren.utils.enums.ModRank;
 import com.alex.guzhenren.utils.enums.ModTalent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -22,10 +23,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Hope extends Item {
+public class Hope extends ModCustomItem {
 
     public Hope(Properties properties) {
-        super(properties);
+        super(properties, ModRank.ONE);
     }
 
     @Override
@@ -81,13 +82,11 @@ public class Hope extends Item {
     public void appendHoverText(
             @NotNull ItemStack itemStack,
             @Nullable Level level,
-            @NotNull List<Component> tooltips,
+            @NotNull List<Component> tooltip,
             @NotNull TooltipFlag isAdvanced) {
-
-        tooltips.add(Component.translatable("tooltip.guzhenren.hope")
+        super.appendHoverText(itemStack, level, tooltip, isAdvanced);
+        tooltip.add(Component.translatable("tooltip.guzhenren.hope")
                 .withStyle(style -> style.withColor(0xFFD700)));
-
-        super.appendHoverText(itemStack, level, tooltips, isAdvanced);
     }
 
     private ModTalent getRandomTalent() {

@@ -1,20 +1,26 @@
-package com.alex.guzhenren.item.custom.gu.lifespan;
+package com.alex.guzhenren.item.custom.gu;
 
 import com.alex.guzhenren.capability.PlayerFlags;
 import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
 import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
+import com.alex.guzhenren.item.custom.ModCustomItem;
+import com.alex.guzhenren.utils.enums.ModRank;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class LifespanGu extends Item {
+import java.util.List;
+
+public class LifespanGu extends ModCustomItem {
 
     public LifespanGu(Properties properties, int lifespan) {
-        super(properties);
+        super(properties, ModRank.ONE);
         this.lifespan = lifespan;
     }
 
@@ -43,5 +49,14 @@ public class LifespanGu extends Item {
 
         itemStack.shrink(1);
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
+    }
+
+    @Override
+    public void appendHoverText(
+            @NotNull ItemStack itemStack,
+            @Nullable Level level,
+            @NotNull List<Component> tooltip,
+            @NotNull TooltipFlag isAdvanced) {
+        super.appendHoverText(itemStack, level, tooltip, isAdvanced);
     }
 }

@@ -1,9 +1,11 @@
 package com.alex.guzhenren.item;
 
 import com.alex.guzhenren.Guzhenren;
-import com.alex.guzhenren.item.custom.PrimevalStone;
-import com.alex.guzhenren.item.custom.gu.lifespan.*;
+import com.alex.guzhenren.item.custom.gu.PrimevalElderGu;
+import com.alex.guzhenren.item.custom.gu_materials.PrimevalStone;
+import com.alex.guzhenren.item.custom.gu.LifespanGu;
 import com.alex.guzhenren.item.custom.gu.special.Hope;
+import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -21,13 +23,18 @@ public class ModItems {
             () -> new PrimevalStone(new Item.Properties().stacksTo(64), 4000));
 
     // ========== MORTAL GU ==========
-    public static final RegistryObject<Item> HOPE = ITEMS.register("hope",
+    public static final RegistryObject<Item> HOPE_GU = ITEMS.register("hope",
             () -> new Hope(new Item.Properties().stacksTo(64)));
 
     public static final RegistryObject<Item> YEAR_LIFESPAN_GU = ITEMS.register("year_lifespan",
-            () -> new YearLifespanGu(new Item.Properties().stacksTo(64), 1));
+            () -> new LifespanGu(new Item.Properties().stacksTo(64), 1));
     public static final RegistryObject<Item> TEN_YEAR_LIFESPAN_GU = ITEMS.register("ten_years_lifespan",
-            () -> new TenYearsLifespanGu(new Item.Properties().stacksTo(64), 10));
+            () -> new LifespanGu(new Item.Properties().stacksTo(64), 10));
+
+    public static final RegistryObject<Item> PRIMEVAL_ELDER_GU_3 = ITEMS.register("primeval_elder_3",
+            () -> new PrimevalElderGu(new Item.Properties().stacksTo(64), ModRank.THREE, 100000));
+    public static final RegistryObject<Item> PRIMEVAL_ELDER_GU_4 = ITEMS.register("primeval_elder_4",
+            () -> new PrimevalElderGu(new Item.Properties().stacksTo(64), ModRank.FOUR, 1000000));
 
     // ========== FOODS ==========
     public static final RegistryObject<Item> LIQUOR = ITEMS.register("liquor",

@@ -22,9 +22,11 @@ public class ModLangEnUsProvider extends LanguageProvider {
         addItem(ModItems.PRIMEVAL_STONE, "Primeval Stone");
 
         // MORTAL GU
-        addItem(ModItems.HOPE, "Hope Gu");
+        addItem(ModItems.HOPE_GU, "Hope Gu");
         addItem(ModItems.YEAR_LIFESPAN_GU, "Year Lifespan Gu");
         addItem(ModItems.TEN_YEAR_LIFESPAN_GU, "Ten Years Lifespan Gu");
+        addItem(ModItems.PRIMEVAL_ELDER_GU_3, "Primeval Elder Gu - Rank 3");
+        addItem(ModItems.PRIMEVAL_ELDER_GU_4, "Primeval Elder Gu - Rank 4");
 
         // FOOD
         addItem(ModItems.LIQUOR, "Liquor");
@@ -58,6 +60,7 @@ public class ModLangEnUsProvider extends LanguageProvider {
         add("guzhenren.text.rank", "Rank");
         add("guzhenren.text.lifespan", "Lifespan");
         add("guzhenren.text.thoughts", "Thoughts");
+        add("guzhenren.text.storage", "Storage");
     }
 
     private void addModStageTranslations() {

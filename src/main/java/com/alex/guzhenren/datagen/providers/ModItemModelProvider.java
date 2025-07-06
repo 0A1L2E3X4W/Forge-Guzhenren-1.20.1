@@ -21,9 +21,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.HUMAN_HEART.get());
         basicItem(ModItems.PRIMEVAL_STONE.get());
 
-        basicItem(ModItems.HOPE.get());
+        basicItem(ModItems.HOPE_GU.get());
         basicItem(ModItems.YEAR_LIFESPAN_GU.get());
         basicItem(ModItems.TEN_YEAR_LIFESPAN_GU.get());
+        basicItem(ModItems.PRIMEVAL_ELDER_GU_3.get());
+        basicItem(ModItems.PRIMEVAL_ELDER_GU_4.get());
 
         basicItem(ModItems.LIQUOR.get());
 

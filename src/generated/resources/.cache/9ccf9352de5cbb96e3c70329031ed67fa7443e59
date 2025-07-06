@@ -1,9 +1,11 @@
-// 1.20.1	2025-07-05T01:36:28.2452641	Item Models: guzhenren
+// 1.20.1	2025-07-06T17:46:32.8836869	Item Models: guzhenren
 2553554cf6477e4b9795a331c2e1ddbed91a24a9 assets/guzhenren/models/item/aperture.json
 752044f9429fb968f65a155b9631a15a6d35a91b assets/guzhenren/models/item/hope.json
 44978b03b2c7e8b60827862d8390c7a79b3330d2 assets/guzhenren/models/item/human_heart.json
 fa38a7817ef39e15b293186154fa9dede0af2a3d assets/guzhenren/models/item/liquor.json
 bde811b57444664ca71cfede93958ef1083e180d assets/guzhenren/models/item/moon_orchid.json
+7fcd86f07f641c7058707e64724d8fdb13f6d943 assets/guzhenren/models/item/primeval_elder_3.json
+0376aa872cb7c08d22eb51ce38ec7c3522969679 assets/guzhenren/models/item/primeval_elder_4.json
 f8bf9e748a34cd148971e9aef7434717cd632902 assets/guzhenren/models/item/primeval_stone.json
 73766e17c7441a0002b45a133368053dfb721c1e assets/guzhenren/models/item/ten_years_lifespan.json
 b64826dfab90448389f78358ec0206ab38e1385a assets/guzhenren/models/item/year_lifespan.json
