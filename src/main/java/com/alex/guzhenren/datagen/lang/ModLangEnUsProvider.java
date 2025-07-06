@@ -61,6 +61,8 @@ public class ModLangEnUsProvider extends LanguageProvider {
         add("guzhenren.text.lifespan", "Lifespan");
         add("guzhenren.text.thoughts", "Thoughts");
         add("guzhenren.text.storage", "Storage");
+        add("guzhenren.text.refinement_progress", "Refinement Progress");
+        add("guzhenren.text.refinement_done", "Refinement Done");
     }
 
     private void addModStageTranslations() {

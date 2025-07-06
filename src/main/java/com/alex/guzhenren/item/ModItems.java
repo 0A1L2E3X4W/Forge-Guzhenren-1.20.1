@@ -1,9 +1,9 @@
 package com.alex.guzhenren.item;
 
 import com.alex.guzhenren.Guzhenren;
-import com.alex.guzhenren.item.custom.gu.PrimevalElderGu;
+import com.alex.guzhenren.item.custom.gu.special.PrimevalElderGu;
 import com.alex.guzhenren.item.custom.gu_materials.PrimevalStone;
-import com.alex.guzhenren.item.custom.gu.LifespanGu;
+import com.alex.guzhenren.item.custom.gu.special.LifespanGu;
 import com.alex.guzhenren.item.custom.gu.special.Hope;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.world.item.Item;
@@ -32,9 +32,11 @@ public class ModItems {
             () -> new LifespanGu(new Item.Properties().stacksTo(64), 10));
 
     public static final RegistryObject<Item> PRIMEVAL_ELDER_GU_3 = ITEMS.register("primeval_elder_3",
-            () -> new PrimevalElderGu(new Item.Properties().stacksTo(64), ModRank.THREE, 100000));
+            () -> new PrimevalElderGu(new Item.Properties().stacksTo(64),
+                    ModRank.THREE, 320000, 100000));
     public static final RegistryObject<Item> PRIMEVAL_ELDER_GU_4 = ITEMS.register("primeval_elder_4",
-            () -> new PrimevalElderGu(new Item.Properties().stacksTo(64), ModRank.FOUR, 1000000));
+            () -> new PrimevalElderGu(new Item.Properties().stacksTo(64),
+                    ModRank.FOUR, 640000, 1000000));
 
     // ========== FOODS ==========
     public static final RegistryObject<Item> LIQUOR = ITEMS.register("liquor",

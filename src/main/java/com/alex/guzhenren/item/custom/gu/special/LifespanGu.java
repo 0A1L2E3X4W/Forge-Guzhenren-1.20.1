@@ -1,4 +1,4 @@
-package com.alex.guzhenren.item.custom.gu;
+package com.alex.guzhenren.item.custom.gu.special;
 
 import com.alex.guzhenren.capability.PlayerFlags;
 import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
@@ -48,6 +48,7 @@ public class LifespanGu extends ModCustomItem {
         });
 
         itemStack.shrink(1);
+        player.getCooldowns().addCooldown(this, 3);
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
     }
 

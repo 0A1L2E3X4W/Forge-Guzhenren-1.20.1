@@ -2,13 +2,16 @@ package com.alex.guzhenren.client.hud;
 
 import com.alex.guzhenren.client.data.ClientAptitudesData;
 import com.alex.guzhenren.client.data.ClientEssenceData;
+import com.alex.guzhenren.item.custom.MortalGu;
 import com.alex.guzhenren.utils.enums.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
-public class ClientHudOverlay {
+public class ClientStatsHudOverlay {
 
     private static final int BAR_WIDTH = 122;
     private static final int BAR_HEIGHT = 12;
@@ -68,6 +71,34 @@ public class ClientHudOverlay {
                 guiGraphics.drawString(minecraft.font, lifespanText, x, y, TEXT_COLOR, true);
                 guiGraphics.drawString(minecraft.font, rankText, x, y + 12, TEXT_COLOR, true);
     };
+
+    public static final IGuiOverlay HUD_REFINEMENT =
+            (gui, guiGraphics, partialTick, screenWidth, screenHeight) -> {
+                Minecraft minecraft = Minecraft.getInstance();
+                Player player = minecraft.player;
+                if (player == null) return;
+                ItemStack mainHand = player.getMainHandItem();
+                ItemStack offHand = player.getOffhandItem();
+
+                ItemStack mortalGu = mainHand.getItem() instanceof MortalGu ? mainHand :
+                        (offHand.getItem() instanceof MortalGu ? offHand : null);
+
+                if (mortalGu == null) { return; }
+
+                float refineProgress = mortalGu.getOrCreateTag().getFloat(MortalGu.KEY_REFINE);
+                int totalCost = ((MortalGu) mortalGu.getItem()).getRefinementCost();
+
+                if (refineProgress >= totalCost) {
+                    return; // Refinement is complete, no need to display
+                }
+
+                String text = String.format("%.0f/%d", refineProgress, totalCost);
+                Component component = Component.translatable("guzhenren.text.refinement_progress").append(": " + text);
+
+                guiGraphics.drawString(minecraft.font, component,
+                        (screenWidth - minecraft.font.width(component)) / 2, screenHeight - 56,
+                        TEXT_COLOR, true);
+            };
 
     // 绘制圆角矩形（简化版）
     private static void drawRoundedRect(GuiGraphics guiGraphics, int x, int y, int width, int height, int color) {

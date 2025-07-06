@@ -2,7 +2,7 @@ package com.alex.guzhenren.event;
 
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.client.gui.ClientStatsGuiOverlay;
-import com.alex.guzhenren.client.hud.ClientHudOverlay;
+import com.alex.guzhenren.client.hud.ClientStatsHudOverlay;
 import com.alex.guzhenren.utils.ModKeyBindings;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,8 +30,9 @@ public class ModClientEvents {
 
         @SubscribeEvent
         public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
-            event.registerAboveAll("guzhenren.hud.essence", ClientHudOverlay.HUD_ESSENCE);
-            event.registerAboveAll("guzhenren.hud.lifespan", ClientHudOverlay.HUD_APTITUDE);
+            event.registerAboveAll("guzhenren.hud.essence", ClientStatsHudOverlay.HUD_ESSENCE);
+            event.registerAboveAll("guzhenren.hud.lifespan", ClientStatsHudOverlay.HUD_APTITUDE);
+            event.registerAboveAll("guzhenren.hud.refinement", ClientStatsHudOverlay.HUD_REFINEMENT);
         }
     }
 

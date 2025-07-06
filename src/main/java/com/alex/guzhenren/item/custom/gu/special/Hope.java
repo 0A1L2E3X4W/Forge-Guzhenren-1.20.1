@@ -74,6 +74,7 @@ public class Hope extends ModCustomItem {
         EssenceSyncS2CPacket.send((ServerPlayer) player, essence);
         FlagsSyncS2CPacket.send((ServerPlayer) player, flags);
 
+        player.getCooldowns().addCooldown(this, 3);
         if (!player.getAbilities().instabuild) { itemStack.shrink(1); }
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
     }

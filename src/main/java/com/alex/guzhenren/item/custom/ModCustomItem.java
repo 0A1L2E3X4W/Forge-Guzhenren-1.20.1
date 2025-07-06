@@ -37,7 +37,7 @@ public class ModCustomItem extends Item {
             @Nullable Level level,
             @NotNull List<Component> tooltip,
             @NotNull TooltipFlag isAdvanced) {
-        super.appendHoverText(itemStack, level, tooltip, isAdvanced);
         tooltip.add(Component.translatable(rank.getNameKey()).withStyle(style -> style.withColor(0xAA00AA)));
+        super.appendHoverText(itemStack, level, tooltip, isAdvanced);
     }
 }

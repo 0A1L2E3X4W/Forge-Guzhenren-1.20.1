@@ -42,6 +42,10 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creative_tab.mortal_gu_tab"))
                     .displayItems(((itemDisplayParameters, output) -> {
                         output.accept(ModItems.HOPE_GU.get());
+                        output.accept(ModItems.YEAR_LIFESPAN_GU.get());
+                        output.accept(ModItems.TEN_YEAR_LIFESPAN_GU.get());
+                        output.accept(ModItems.PRIMEVAL_ELDER_GU_3.get());
+                        output.accept(ModItems.PRIMEVAL_ELDER_GU_4.get());
                     })).build());
 
     public static void register(IEventBus eventBus) {

@@ -68,6 +68,8 @@ public class ModLangZhCnProvider extends LanguageProvider {
         add("guzhenren.text.lifespan", "寿命");
         add("guzhenren.text.thoughts", "念头");
         add("guzhenren.text.storage", "元石存储");
+        add("guzhenren.text.refinement_progress", "炼化进度");
+        add("guzhenren.text.refinement_done", "已炼化");
     }
 
     private void addModTalentTranslations() {

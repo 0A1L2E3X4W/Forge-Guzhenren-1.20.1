@@ -1,8 +1,8 @@
-package com.alex.guzhenren.item.custom.gu;
+package com.alex.guzhenren.item.custom.gu.special;
 
 import com.alex.guzhenren.block.ModBlocks;
 import com.alex.guzhenren.item.ModItems;
-import com.alex.guzhenren.item.custom.ModCustomItem;
+import com.alex.guzhenren.item.custom.MortalGu;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -18,15 +18,15 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class PrimevalElderGu extends ModCustomItem {
+public class PrimevalElderGu extends MortalGu {
 
-    public PrimevalElderGu(Properties properties, ModRank rank, int maxStorage) {
-        super(properties, rank);
+    public PrimevalElderGu(Properties properties, ModRank rank, int refinementCost, int maxStorage) {
+        super(properties, rank, refinementCost);
         this.maxStorage = maxStorage;
     }
 
-    public static final String KEY_STORAGE = "guzhenren.item.primeval_elder";
-    protected int maxStorage;
+    public static final String KEY_STORAGE = "key.guzhenren.item.primeval_elder";
+    private final int maxStorage;
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(
@@ -39,18 +39,24 @@ public class PrimevalElderGu extends ModCustomItem {
             return InteractionResultHolder.pass(itemStack);
         }
 
+        // 炼化蛊虫
+        int refineResult = refinement(itemStack, player, refineValue, refinementCost);
+        if (refineResult == -1) { return InteractionResultHolder.fail(itemStack); }
+        else if (refineResult == 0) { return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide()); }
+
+        // 使用物品
         if (player.isShiftKeyDown()) {
-            extractStones(player, itemStack);
+            extractItems(player, itemStack);
             return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
         }
 
-        int collected = calculateAndRemoveStones(player, itemStack);
-
+        int collected = calculateAndRemoveTargetItem(player, itemStack);
         if (collected <= 0) {
             return InteractionResultHolder.fail(itemStack);
         }
 
-        addStoredStones(itemStack, collected);
+        addStoredItems(itemStack, collected);
+        player.getCooldowns().addCooldown(this, 3);
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
     }
 
@@ -60,19 +66,20 @@ public class PrimevalElderGu extends ModCustomItem {
                                 @NotNull List<Component> tooltip,
                                 @NotNull TooltipFlag isAdvanced) {
         super.appendHoverText(itemStack, level, tooltip, isAdvanced);
-        tooltip.add(Component.translatable("guzhenren.text.storage")
-                .append(": " + getStoredStones(itemStack) + "/" + maxStorage));
+        tooltip.add(Component.translatable("guzhenren.text.storage").append(": " + getStoredItems(itemStack) + "/" + maxStorage));
+
+        refinementTooltips(itemStack, tooltip, refinementCost);
     }
 
-    private int calculateAndRemoveStones(Player player, ItemStack itemStack) {
+    private int calculateAndRemoveTargetItem(Player player, ItemStack itemStack) {
         int count = 0;
-        int currentStored = getStoredStones(itemStack);
+        int currentStored = getStoredItems(itemStack);
         int remainingSpace = maxStorage - currentStored;
 
-        if (remainingSpace <= 0) { return 0; } // 没有剩余空间，直接返回
+        if (remainingSpace <= 0) { return 0; }
 
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
-            if (remainingSpace <= 0) break; // 空间已满，停止处理
+            if (remainingSpace <= 0) break;
 
             ItemStack stack = player.getInventory().getItem(i);
             if (stack.isEmpty()) continue;
@@ -114,7 +121,7 @@ public class PrimevalElderGu extends ModCustomItem {
         return count;
     }
 
-    private void addStoredStones(ItemStack itemStack, int amount) {
+    private void addStoredItems(ItemStack itemStack, int amount) {
         CompoundTag nbt = itemStack.getOrCreateTag();
         int current = nbt.getInt(KEY_STORAGE);
         int newAmount = Math.min(current + amount, maxStorage); // 确保不超过上限
@@ -122,21 +129,21 @@ public class PrimevalElderGu extends ModCustomItem {
         itemStack.setTag(nbt);
     }
 
-    private int getStoredStones(ItemStack itemStack) {
+    private int getStoredItems(ItemStack itemStack) {
         if (!itemStack.hasTag()) return 0;
         assert itemStack.getTag() != null;
         return itemStack.getTag().getInt(KEY_STORAGE);
     }
 
-    private void removeStoredStones(ItemStack itemStack, int amount) {
+    private void removeStoredItems(ItemStack itemStack, int amount) {
         CompoundTag nbt = itemStack.getOrCreateTag();
         int current = nbt.getInt(KEY_STORAGE);
         nbt.putInt(KEY_STORAGE, Math.max(0, current - amount));
         itemStack.setTag(nbt);
     }
 
-    private void extractStones(Player player, ItemStack itemStack) {
-        int stored = getStoredStones(itemStack);
+    private void extractItems(Player player, ItemStack itemStack) {
+        int stored = getStoredItems(itemStack);
 
         if (stored <= 0) {
             return;
@@ -151,6 +158,6 @@ public class PrimevalElderGu extends ModCustomItem {
             ItemHandlerHelper.giveItemToPlayer(player, outputStack);
         }
 
-        removeStoredStones(itemStack, outputAmount);
+        removeStoredItems(itemStack, outputAmount);
     }
 }
