@@ -4,13 +4,10 @@ import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
 import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
 import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
 import com.alex.guzhenren.item.custom.ModCustomItem;
-import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
-import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
-import com.alex.guzhenren.networking.packet.FlagsSyncS2CPacket;
 import com.alex.guzhenren.utils.enums.ModRank;
+import com.alex.guzhenren.utils.enums.ModStage;
 import com.alex.guzhenren.utils.enums.ModTalent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -66,13 +63,11 @@ public class Hope extends ModCustomItem {
         int maxEssence = getMaxEssence(talent);
 
         aptitude.setTalent(talent);
+        aptitude.setRank(ModRank.ONE);
+        aptitude.setStage(ModStage.INIT);
         essence.setMaxEssence(maxEssence);
-        essence.setEssence(maxEssence * 0.8f);
+        essence.setCurrentEssence(maxEssence * 0.8f);
         flags.setAwaken(true);
-
-        AptitudesSyncS2CPacket.send((ServerPlayer) player, aptitude);
-        EssenceSyncS2CPacket.send((ServerPlayer) player, essence);
-        FlagsSyncS2CPacket.send((ServerPlayer) player, flags);
 
         player.getCooldowns().addCooldown(this, 3);
         if (!player.getAbilities().instabuild) { itemStack.shrink(1); }

@@ -39,7 +39,7 @@ public class EssenceSyncS2CPacket {
 
     public static void send(ServerPlayer serverPlayer, PlayerEssence essence) {
         ModMessage.sendToPlayer(new EssenceSyncS2CPacket(
-                essence.getEssence(), essence.getMaxEssence()),
+                essence.getCurrentEssence(), essence.getMaxEssence()),
                 serverPlayer);
     }
 }

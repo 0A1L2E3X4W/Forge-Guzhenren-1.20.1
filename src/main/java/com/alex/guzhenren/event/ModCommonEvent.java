@@ -2,12 +2,9 @@ package com.alex.guzhenren.event;
 
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.capability.*;
-import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
-import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
-import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
-import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
-import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
-import com.alex.guzhenren.networking.packet.FlagsSyncS2CPacket;
+import com.alex.guzhenren.capability.providers.*;
+import com.alex.guzhenren.networking.packet.*;
+import com.alex.guzhenren.utils.capability.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -25,6 +22,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = Guzhenren.MOD_ID)
 public class ModCommonEvent {
 
+    // CAPABILITY相关事件
     @SubscribeEvent
     public static void onPlayerJoinWorld(EntityJoinLevelEvent event) {
         if (!event.getLevel().isClientSide()) {
@@ -102,23 +100,15 @@ public class ModCommonEvent {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if(event.side == LogicalSide.SERVER) {
 
-            event.player.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE).ifPresent(essence -> {
-                int playerMaxEssence = essence.getMaxEssence();
-                float playerEssence = essence.getEssence();
-                if (playerEssence < playerMaxEssence) {
-                    essence.addEssence((float) playerMaxEssence / (20*60*10));
-                    EssenceSyncS2CPacket.send((ServerPlayer) event.player, essence);
-                }
-            });
+            int playerMaxEssence = PlayerEssenceUtils.getMaxEssence(event.player);
+            float playerCurrentEssence = PlayerEssenceUtils.getCurrentEssence(event.player);
 
-            event.player.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).ifPresent(aptitudes -> {
-                float playerLifespan = aptitudes.getLifespan();
-                if (playerLifespan > 0.1F) {
-                    aptitudes.subLifespan(1.0F / (20.0F * 60.0F * 10.0F));
-                    aptitudes.subThoughts(100.0F / (20.0F * 60.0F * 10.0F));
-                    AptitudesSyncS2CPacket.send((ServerPlayer) event.player, aptitudes);
-                }
-            });
+            if (playerMaxEssence > playerCurrentEssence && playerMaxEssence > 0) {
+                PlayerEssenceUtils.addCurrentEssence(event.player, playerMaxEssence / (20.0F * 60.0F * 10.0F));
+            }
+
+            PlayerAptitudesUtils.subLifespan(event.player, 1.0F / (20.0F * 60.0F * 10.0F));
+            PlayerAptitudesUtils.subThoughts(event.player, 100.0F / (20.0F * 60.0F * 10.0F));
         }
     }
 
@@ -127,21 +117,14 @@ public class ModCommonEvent {
     public static void onPlayerWakeUp(PlayerWakeUpEvent event) {
 
         Player player = event.getEntity();
-        if (player.level().isClientSide()) {
-            return;
-        }
 
-        if (!event.updateLevel()) {
-            player.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE).ifPresent(essence -> {
-                essence.setEssence(essence.getMaxEssence());
-                EssenceSyncS2CPacket.send((ServerPlayer) player, essence);
-            });
+        if (player.level().isClientSide()) return;
+        if (event.updateLevel()) return;
 
-            player.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).ifPresent(aptitudes -> {
-                float currentThoughts = aptitudes.getThoughts();
-                if (currentThoughts < 800.0F) { aptitudes.setThoughts(800.0F); }
-                AptitudesSyncS2CPacket.send((ServerPlayer) player, aptitudes);
-            });
+        PlayerEssenceUtils.setCurrentEssence(player, PlayerEssenceUtils.getMaxEssence(player));
+
+        if (PlayerAptitudesUtils.getThoughts(player) < 800.0F) {
+            PlayerAptitudesUtils.setThoughts(player, 800.0F);
         }
     }
 }

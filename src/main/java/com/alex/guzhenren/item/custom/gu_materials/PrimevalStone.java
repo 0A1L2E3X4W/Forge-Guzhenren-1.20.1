@@ -38,11 +38,11 @@ public class PrimevalStone extends ModCustomItem {
         }
 
         boolean isEssenceAdded = player.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE).map(essence ->  {
-            float currentEssence = essence.getEssence();
+            float currentEssence = essence.getCurrentEssence();
             int maxEssence = essence.getMaxEssence();
 
             if (currentEssence < maxEssence) {
-                essence.addEssence(essenceAmount);
+                essence.addCurrentEssence(essenceAmount);
                 EssenceSyncS2CPacket.send((ServerPlayer) player, essence);
                 return true;
             }

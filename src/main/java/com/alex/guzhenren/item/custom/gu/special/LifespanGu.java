@@ -37,7 +37,8 @@ public class LifespanGu extends ModCustomItem {
             return InteractionResultHolder.pass(itemStack);
         }
 
-        boolean isAwaken = player.getCapability(PlayerFlagsProvider.PLAYER_FLAGS).map(PlayerFlags::isAwaken).orElse(false);
+        boolean isAwaken = player.getCapability(PlayerFlagsProvider.PLAYER_FLAGS)
+                .map(PlayerFlags::isAwaken).orElse(false);
 
         if (!isAwaken) {
             return InteractionResultHolder.fail(itemStack);

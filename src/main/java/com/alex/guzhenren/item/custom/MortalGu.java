@@ -1,11 +1,10 @@
 package com.alex.guzhenren.item.custom;
 
 import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
-import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
+import com.alex.guzhenren.utils.capability.PlayerAptitudesUtils;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -39,15 +38,17 @@ public class MortalGu extends ModCustomItem {
 
         CompoundTag nbt = itemStack.getOrCreateTag();
         if (!nbt.contains(KEY_REFINE)) nbt.putFloat(KEY_REFINE, 0.0F);
+
         float currentProgress = nbt.getFloat(KEY_REFINE);
+        float currentEssence = essence.getCurrentEssence() * PlayerAptitudesUtils.getEssenceModifier(player);
+        float essenceRequired = progress / PlayerAptitudesUtils.getEssenceModifier(player);
 
         if (currentProgress >= totalCost) return 1; // Max refinement reached
-        if (essence.getEssence() < progress) return -1; // Insufficient essence
+        if (currentEssence < progress) return -1; // Insufficient essence
 
         nbt.putFloat(KEY_REFINE, currentProgress + progress);
         itemStack.setTag(nbt);
-        essence.subEssence(progress);
-        EssenceSyncS2CPacket.send((ServerPlayer) player, essence);
+        essence.subCurrentEssence(essenceRequired);
 
         return 0; // success, not enough refinement progress
     }
@@ -85,7 +86,8 @@ public class MortalGu extends ModCustomItem {
     }
 
     // TOOLTIPS
-    protected static void refinementTooltips(@NotNull ItemStack itemStack, @NotNull List<Component> tooltip, int refinementCost) {
+    protected static void refinementTooltips(
+            @NotNull ItemStack itemStack, @NotNull List<Component> tooltip, int refinementCost) {
 
         float refinement = itemStack.getOrCreateTag().getFloat(KEY_REFINE);
         if (refinement < refinementCost) {

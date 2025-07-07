@@ -34,12 +34,12 @@ public class AptitudesSyncS2CPacket {
     public AptitudesSyncS2CPacket(FriendlyByteBuf buf) {
         lifespan = buf.readFloat();
         thoughts = buf.readFloat();
-        soul = buf.readInt();
-        luck = buf.readInt();
-        moral = buf.readInt();
-        rank = buf.readEnum(ModRank.class);
-        stage = buf.readEnum(ModStage.class);
-        talent = buf.readEnum(ModTalent.class);
+        soul     = buf.readInt();
+        luck     = buf.readInt();
+        moral    = buf.readInt();
+        rank     = buf.readEnum(ModRank.class);
+        stage    = buf.readEnum(ModStage.class);
+        talent   = buf.readEnum(ModTalent.class);
 
     }
 
@@ -49,7 +49,6 @@ public class AptitudesSyncS2CPacket {
         buf.writeInt(soul);
         buf.writeInt(luck);
         buf.writeInt(moral);
-
         buf.writeEnum(rank);
         buf.writeEnum(stage);
         buf.writeEnum(talent);
