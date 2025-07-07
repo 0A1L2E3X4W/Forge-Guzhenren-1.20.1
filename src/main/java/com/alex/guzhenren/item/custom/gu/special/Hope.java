@@ -4,6 +4,7 @@ import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
 import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
 import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
 import com.alex.guzhenren.item.custom.ModCustomItem;
+import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import com.alex.guzhenren.utils.enums.ModStage;
 import com.alex.guzhenren.utils.enums.ModTalent;
@@ -23,7 +24,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Hope extends ModCustomItem {
 
     public Hope(Properties properties) {
-        super(properties, ModRank.ONE);
+        super(properties, ModRank.ONE, ModPath.HEAVEN);
     }
 
     @Override

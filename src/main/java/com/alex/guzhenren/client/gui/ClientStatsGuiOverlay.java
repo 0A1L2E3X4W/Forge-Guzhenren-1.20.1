@@ -31,15 +31,7 @@ public class ClientStatsGuiOverlay extends Screen {
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
 
-        int guiWidth = (int) (this.width * 0.75F);
-        int guiHeight = (int) (this.width * 0.75F);
-        int leftPos = (this.width - guiWidth) / 2;
-        int topPos = (this.height - guiHeight) / 2;
-
-        guiGraphics.fillGradient(
-                0, 0,
-                this.width, this.height,
-                BACKGROUND_COLOR, BACKGROUND_COLOR);
+        guiGraphics.fillGradient(0, 0, this.width, this.height, BACKGROUND_COLOR, BACKGROUND_COLOR);
 
         Minecraft minecraft = Minecraft.getInstance();
         Component component;
@@ -51,24 +43,28 @@ public class ClientStatsGuiOverlay extends Screen {
         component = Component.translatable("guzhenren.text.essence").append(": " + text);
         guiGraphics.drawString(minecraft.font, component, 20, 20, TEXT_COLOR, true);
 
+        ModRank playerRank = ClientAptitudesData.getRank();
+        ModStage playerStage = ClientAptitudesData.getStage();
+
+        component = Component.translatable("guzhenren.text.rank")
+                .append(": ").append(Component.translatable(playerRank.getNameKey())
+                        .append(" ").append(Component.translatable(playerStage.getNameKey())));
+        guiGraphics.drawString(minecraft.font, component, 20, 35, TEXT_COLOR, true);
+
         float playerLifespan = ClientAptitudesData.getLifespan();
         text = String.format("%.1f", playerLifespan);
         component = Component.translatable("guzhenren.text.lifespan").append(": " + text);
-        guiGraphics.drawString(minecraft.font, component, 20, 35, TEXT_COLOR, true);
+        guiGraphics.drawString(minecraft.font, component, 20, 50, TEXT_COLOR, true);
 
         float playerThoughts = ClientAptitudesData.getThoughts();
         text = String.format("%.1f", playerThoughts);
         component = Component.translatable("guzhenren.text.thoughts").append(": " + text);
-        guiGraphics.drawString(minecraft.font, component, 20, 50, TEXT_COLOR, true);
+        guiGraphics.drawString(minecraft.font, component, 20, 65, TEXT_COLOR, true);
 
-        int playerLuck = ClientAptitudesData.getLuck();
-        int playerSoul = ClientAptitudesData.getSoul();
-        int playerMoral = ClientAptitudesData.getMoral();
-
-        ModRank playerRank = ClientAptitudesData.getRank();
-        ModStage playerStage = ClientAptitudesData.getStage();
         ModTalent playerTalent = ClientAptitudesData.getTalent();
-
+        component = Component.translatable("guzhenren.text.talent")
+                .append(": ").append(Component.translatable(playerTalent.getNameKey()));
+        guiGraphics.drawString(minecraft.font, component, 20, 80, TEXT_COLOR, true);
     }
 
     @Override

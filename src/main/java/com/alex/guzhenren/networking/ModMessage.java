@@ -40,6 +40,10 @@ public class ModMessage {
         network.messageBuilder(FlagsSyncS2CPacket.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(FlagsSyncS2CPacket::new).encoder(FlagsSyncS2CPacket::toBytes)
                 .consumerMainThread(FlagsSyncS2CPacket::handle).add();
+
+        network.messageBuilder(PathDataSyncS2CPacket.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(PathDataSyncS2CPacket::new).encoder(PathDataSyncS2CPacket::toBytes)
+                .consumerMainThread(PathDataSyncS2CPacket::handle).add();
     }
 
     public static <MEG> void sendToServer(MEG message) {

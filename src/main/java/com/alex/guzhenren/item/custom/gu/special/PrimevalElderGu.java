@@ -3,6 +3,7 @@ package com.alex.guzhenren.item.custom.gu.special;
 import com.alex.guzhenren.block.ModBlocks;
 import com.alex.guzhenren.item.ModItems;
 import com.alex.guzhenren.item.custom.MortalGu;
+import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -20,8 +21,8 @@ import java.util.List;
 
 public class PrimevalElderGu extends MortalGu {
 
-    public PrimevalElderGu(Properties properties, ModRank rank, int refinementCost, int maxStorage) {
-        super(properties, rank, refinementCost);
+    public PrimevalElderGu(Properties properties, ModRank rank, ModPath path, int refinementCost, int maxStorage) {
+        super(properties, rank, path, refinementCost);
         this.maxStorage = maxStorage;
     }
 

@@ -1,11 +1,10 @@
 package com.alex.guzhenren.item.custom.gu_materials;
 
-import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
 import com.alex.guzhenren.item.custom.ModCustomItem;
-import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
+import com.alex.guzhenren.utils.capability.PlayerEssenceUtils;
+import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -20,7 +19,7 @@ import java.util.List;
 public class PrimevalStone extends ModCustomItem {
 
     public PrimevalStone(Properties properties, int essence) {
-        super(properties, ModRank.MORTAL);
+        super(properties, ModRank.MORTAL, ModPath.HEAVEN);
         this.essenceAmount = essence;
     }
 
@@ -37,24 +36,17 @@ public class PrimevalStone extends ModCustomItem {
             return InteractionResultHolder.pass(itemStack);
         }
 
-        boolean isEssenceAdded = player.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE).map(essence ->  {
-            float currentEssence = essence.getCurrentEssence();
-            int maxEssence = essence.getMaxEssence();
+        float currentEssence = PlayerEssenceUtils.getCurrentEssence(player);
+        int maxEssence = PlayerEssenceUtils.getMaxEssence(player);
 
-            if (currentEssence < maxEssence) {
-                essence.addCurrentEssence(essenceAmount);
-                EssenceSyncS2CPacket.send((ServerPlayer) player, essence);
-                return true;
-            }
-
-            return false;
-        }).orElse(false);
-
-        if (!isEssenceAdded) {
-            return InteractionResultHolder.fail(itemStack);
+        if ((maxEssence - currentEssence) < essenceAmount) {
+            PlayerEssenceUtils.addCurrentEssence(player, essenceAmount);
+        } else {
+            PlayerEssenceUtils.setCurrentEssence(player, maxEssence);
         }
 
-        if (!player.getAbilities().instabuild) { itemStack.shrink(1); }
+        itemStack.shrink(1);
+        player.getCooldowns().addCooldown(this, 3);
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
     }
 

@@ -39,6 +39,10 @@ public class ModCommonEvent {
                 serverPlayer.getCapability(PlayerFlagsProvider.PLAYER_FLAGS).ifPresent(flags -> {
                     FlagsSyncS2CPacket.send(serverPlayer, flags);
                 });
+
+                serverPlayer.getCapability(PlayerPathDataProvider.PLAYER_PATH_DATA).ifPresent(pathData -> {
+                    PathDataSyncS2CPacket.send(serverPlayer, pathData);
+                });
             }
         }
     }
@@ -60,6 +64,11 @@ public class ModCommonEvent {
             if (!event.getObject().getCapability(PlayerFlagsProvider.PLAYER_FLAGS).isPresent()) {
                 event.addCapability(ResourceLocation.fromNamespaceAndPath(
                         Guzhenren.MOD_ID, "property_flags"), new PlayerFlagsProvider());
+            }
+
+            if (!event.getObject().getCapability(PlayerPathDataProvider.PLAYER_PATH_DATA).isPresent()) {
+                event.addCapability(ResourceLocation.fromNamespaceAndPath(
+                        Guzhenren.MOD_ID, "property_path_data"), new PlayerPathDataProvider());
             }
         }
     }
@@ -85,6 +94,12 @@ public class ModCommonEvent {
                     newStore.copyFrom(oldStore);
                 });
             });
+
+            event.getOriginal().getCapability(PlayerPathDataProvider.PLAYER_PATH_DATA).ifPresent(oldStore -> {
+                event.getOriginal().getCapability(PlayerPathDataProvider.PLAYER_PATH_DATA).ifPresent(newStore -> {
+                    newStore.copyFrom(oldStore);
+                });
+            });
         }
     }
 
@@ -93,6 +108,7 @@ public class ModCommonEvent {
         event.register(PlayerEssence.class);
         event.register(PlayerAptitudes.class);
         event.register(PlayerFlags.class);
+        event.register(PlayerPathData.class);
     }
 
     // 玩家每tick事件

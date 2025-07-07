@@ -4,6 +4,7 @@ import com.alex.guzhenren.capability.PlayerFlags;
 import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
 import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
 import com.alex.guzhenren.item.custom.ModCustomItem;
+import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -20,7 +21,7 @@ import java.util.List;
 public class LifespanGu extends ModCustomItem {
 
     public LifespanGu(Properties properties, int lifespan) {
-        super(properties, ModRank.ONE);
+        super(properties, ModRank.ONE, ModPath.HEAVEN);
         this.lifespan = lifespan;
     }
 

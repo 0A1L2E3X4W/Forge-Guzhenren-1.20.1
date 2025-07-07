@@ -53,12 +53,8 @@ public class ModLangZhCnProvider extends LanguageProvider {
         addModTalentTranslations();
         addModRankTranslations();
         addModStageTranslations();
-    }
-
-    private void addCreateTabTranslations() {
-        add("creative_tab.gu_material_tab", "蛊材类");
-        add("creative_tab.gu_world_tab", "蛊界方块");
-        add("creative_tab.mortal_gu_tab", "凡蛊");
+        addModPathTranslations();
+        addExtremePhysiqueTranslations();
     }
 
     private void addGuiHudTextTranslations() {
@@ -67,9 +63,55 @@ public class ModLangZhCnProvider extends LanguageProvider {
         add("guzhenren.text.essence", "真元");
         add("guzhenren.text.lifespan", "寿命");
         add("guzhenren.text.thoughts", "念头");
+        add("guzhenren.text.talent", "资质");
         add("guzhenren.text.storage", "元石存储");
         add("guzhenren.text.refinement_progress", "炼化进度");
         add("guzhenren.text.refinement_done", "已炼化");
+    }
+
+    private void addModPathTranslations() {
+        add(ModPath.HEAVEN.getNameKey(), "天道");
+        add(ModPath.TIME.getNameKey(), "宙道");
+        add(ModPath.SPACE.getNameKey(), "宇道");
+        add(ModPath.HUMAN.getNameKey(), "人道");
+        add(ModPath.RULE.getNameKey(), "律道");
+
+        add(ModPath.EARTH.getNameKey(), "土道");
+        add(ModPath.WATER.getNameKey(), "水道");
+        add(ModPath.METAL.getNameKey(), "金道");
+        add(ModPath.WOOD.getNameKey(), "木道");
+        add(ModPath.ICE_SNOW.getNameKey(), "冰雪道");
+        add(ModPath.FIRE.getNameKey(), "炎道");
+        add(ModPath.DARK.getNameKey(), "暗道");
+        add(ModPath.LIGHT.getNameKey(), "光道");
+        add(ModPath.CLOUD.getNameKey(), "云道");
+        add(ModPath.MOON.getNameKey(), "月道");
+        add(ModPath.WIND.getNameKey(), "风道");
+        add(ModPath.QI.getNameKey(), "气道");
+        add(ModPath.LIGHTNING.getNameKey(), "雷道");
+
+        add(ModPath.STRENGTH.getNameKey(), "力道");
+        add(ModPath.DREAM.getNameKey(), "梦道");
+        add(ModPath.ENSLAVEMENT.getNameKey(), "奴道");
+        add(ModPath.TRANSFORMATION.getNameKey(), "变化道");
+        add(ModPath.INFORMATION.getNameKey(), "信道");
+        add(ModPath.LUCK.getNameKey(), "运道");
+        add(ModPath.REFINEMENT.getNameKey(), "炼道");
+        add(ModPath.SOUND.getNameKey(), "音道");
+        add(ModPath.THEFT.getNameKey(), "偷道");
+        add(ModPath.BLADE.getNameKey(), "刃道");
+        add(ModPath.WISDOM.getNameKey(), "智道");
+
+        add(ModPath.KILLING.getNameKey(), "杀道");
+        add(ModPath.BLOOD.getNameKey(), "血道");
+        add(ModPath.POISON.getNameKey(), "毒道");
+        add(ModPath.SOUL.getNameKey(), "魂道");
+    }
+
+    private void addCreateTabTranslations() {
+        add("creative_tab.gu_material_tab", "蛊材类");
+        add("creative_tab.gu_world_tab", "蛊界方块");
+        add("creative_tab.mortal_gu_tab", "凡蛊");
     }
 
     private void addModTalentTranslations() {
@@ -100,5 +142,20 @@ public class ModLangZhCnProvider extends LanguageProvider {
         add(ModRank.SEVEN.getNameKey(), "七转");
         add(ModRank.EIGHT.getNameKey(), "八转");
         add(ModRank.NINE.getNameKey(), "九转");
+    }
+
+    private void addExtremePhysiqueTranslations() {
+        add(ModExtremePhysique.VERDANT_GREAT_SUN.getNameKey(), "太日阳莽体");
+        add(ModExtremePhysique.DESOLATE_ANCIENT_MOON.getNameKey(), "古月阴荒体");
+        add(ModExtremePhysique.NORTHERN_DARK_ICE_SOUL.getNameKey(), "北冥冰魄体");
+        add(ModExtremePhysique.BOUNDLESS_FOREST_SAMSARA.getNameKey(), "森海轮回体");
+        add(ModExtremePhysique.BLAZING_GLORY_LIGHTNING_BRILLIANCE.getNameKey(), "炎煌雷泽体");
+        add(ModExtremePhysique.MYRIAD_GOLD_WONDROUS_ESSENCE.getNameKey(), "万金妙华体");
+        add(ModExtremePhysique.GREAT_STRENGTH_TRUE_MARTIAL.getNameKey(), "大力真武体");
+        add(ModExtremePhysique.CAREFREE_WISDOM_HEART.getNameKey(), "逍遥智心体");
+        add(ModExtremePhysique.CENTRAL_EARTH_ESSENCE.getNameKey(), "厚土元央体");
+        add(ModExtremePhysique.UNIVERSE_GREAT_DERIVATION.getNameKey(), "宇宙大衍体");
+        add(ModExtremePhysique.PURE_DREAM_REALITY_SEEKER.getNameKey(), "纯梦求真体");
+        add(ModExtremePhysique.NULL.getNameKey(), "");
     }
 }

@@ -1,7 +1,8 @@
 package com.alex.guzhenren.item.custom;
 
-import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
 import com.alex.guzhenren.utils.capability.PlayerAptitudesUtils;
+import com.alex.guzhenren.utils.capability.PlayerEssenceUtils;
+import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -16,8 +17,8 @@ import java.util.logging.Level;
 
 public class MortalGu extends ModCustomItem {
 
-    public MortalGu(Properties properties, ModRank rank, int refinementCost) {
-        super(properties, rank);
+    public MortalGu(Properties properties, ModRank rank, ModPath path, int refinementCost) {
+        super(properties, rank, path);
         this.refinementCost = refinementCost;
     }
 
@@ -31,24 +32,19 @@ public class MortalGu extends ModCustomItem {
     // REFINEMENT
     protected int refinement(ItemStack itemStack, Player player, float progress, int totalCost) {
 
-        var essenceCap = player.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE);
-        if (!essenceCap.isPresent()) return -1; // failed
-        var essence = essenceCap.resolve().orElseThrow(
-                () -> new IllegalStateException("PlayerEssence capability not resolved"));
-
         CompoundTag nbt = itemStack.getOrCreateTag();
         if (!nbt.contains(KEY_REFINE)) nbt.putFloat(KEY_REFINE, 0.0F);
 
         float currentProgress = nbt.getFloat(KEY_REFINE);
-        float currentEssence = essence.getCurrentEssence() * PlayerAptitudesUtils.getEssenceModifier(player);
+        float currentEssence = PlayerEssenceUtils.getCurrentEssence(player) * PlayerAptitudesUtils.getEssenceModifier(player);
         float essenceRequired = progress / PlayerAptitudesUtils.getEssenceModifier(player);
 
         if (currentProgress >= totalCost) return 1; // Max refinement reached
         if (currentEssence < progress) return -1; // Insufficient essence
 
+        PlayerEssenceUtils.subCurrentEssence(player, essenceRequired);
         nbt.putFloat(KEY_REFINE, currentProgress + progress);
         itemStack.setTag(nbt);
-        essence.subCurrentEssence(essenceRequired);
 
         return 0; // success, not enough refinement progress
     }

@@ -52,6 +52,8 @@ public class ModLangEnUsProvider extends LanguageProvider {
         addModTalentTranslations();
         addModRankTranslations();
         addModStageTranslations();
+        addModPathTranslations();
+        addExtremePhysiqueTranslations();
     }
 
     private void addGuiHudTextTranslations() {
@@ -60,9 +62,49 @@ public class ModLangEnUsProvider extends LanguageProvider {
         add("guzhenren.text.rank", "Rank");
         add("guzhenren.text.lifespan", "Lifespan");
         add("guzhenren.text.thoughts", "Thoughts");
+        add("guzhenren.text.talent", "Talent");
         add("guzhenren.text.storage", "Storage");
         add("guzhenren.text.refinement_progress", "Refinement Progress");
         add("guzhenren.text.refinement_done", "Refinement Done");
+    }
+
+    private void addModPathTranslations() {
+        add(ModPath.HEAVEN.getNameKey(), "Heaven Path");
+        add(ModPath.TIME.getNameKey(), "Time Path");
+        add(ModPath.SPACE.getNameKey(), "Space Path");
+        add(ModPath.HUMAN.getNameKey(), "Human Path");
+        add(ModPath.RULE.getNameKey(), "Rule Path");
+
+        add(ModPath.EARTH.getNameKey(), "Earth Path");
+        add(ModPath.WATER.getNameKey(), "Water Path");
+        add(ModPath.METAL.getNameKey(), "Metal Path");
+        add(ModPath.WOOD.getNameKey(), "Wood Path");
+        add(ModPath.ICE_SNOW.getNameKey(), "Ice & Snow Path");
+        add(ModPath.FIRE.getNameKey(), "Fire Path");
+        add(ModPath.DARK.getNameKey(), "Dark Path");
+        add(ModPath.LIGHT.getNameKey(), "Light Path");
+        add(ModPath.CLOUD.getNameKey(), "Cloud Path");
+        add(ModPath.MOON.getNameKey(), "Moon Path");
+        add(ModPath.WIND.getNameKey(), "Wind Path");
+        add(ModPath.QI.getNameKey(), "QI Path");
+        add(ModPath.LIGHTNING.getNameKey(), "Lightning Path");
+
+        add(ModPath.STRENGTH.getNameKey(), "Strength Path");
+        add(ModPath.DREAM.getNameKey(), "Dream Path");
+        add(ModPath.ENSLAVEMENT.getNameKey(), "Enslavement Path");
+        add(ModPath.TRANSFORMATION.getNameKey(), "Transformation Path");
+        add(ModPath.INFORMATION.getNameKey(), "Information Path");
+        add(ModPath.LUCK.getNameKey(), "Luck Path");
+        add(ModPath.REFINEMENT.getNameKey(), "Refinement Path");
+        add(ModPath.SOUND.getNameKey(), "Sound Path");
+        add(ModPath.THEFT.getNameKey(), "Theft Path");
+        add(ModPath.BLADE.getNameKey(), "Blade Path");
+        add(ModPath.WISDOM.getNameKey(), "Wisdom Path");
+
+        add(ModPath.KILLING.getNameKey(), "Killing Path");
+        add(ModPath.BLOOD.getNameKey(), "Blood Path");
+        add(ModPath.POISON.getNameKey(), "Poison Path");
+        add(ModPath.SOUL.getNameKey(), "Soul Path");
     }
 
     private void addModStageTranslations() {
@@ -99,5 +141,20 @@ public class ModLangEnUsProvider extends LanguageProvider {
         add("creative_tab.gu_material_tab", "Gu Materials");
         add("creative_tab.gu_world_tab", "Gu World Block");
         add("creative_tab.mortal_gu_tab", "Mortal Gu");
+    }
+
+    private void addExtremePhysiqueTranslations() {
+        add(ModExtremePhysique.VERDANT_GREAT_SUN.getNameKey(), "Verdant Great Sun");
+        add(ModExtremePhysique.DESOLATE_ANCIENT_MOON.getNameKey(), "Desolate Ancient Moon");
+        add(ModExtremePhysique.NORTHERN_DARK_ICE_SOUL.getNameKey(), "Northern Dark Ice Soul");
+        add(ModExtremePhysique.BOUNDLESS_FOREST_SAMSARA.getNameKey(), "Boundless Forest Samsara");
+        add(ModExtremePhysique.BLAZING_GLORY_LIGHTNING_BRILLIANCE.getNameKey(), "Blazing Glory Lightning Brilliance");
+        add(ModExtremePhysique.MYRIAD_GOLD_WONDROUS_ESSENCE.getNameKey(), "Myriad Gold Wondrous Essence");
+        add(ModExtremePhysique.GREAT_STRENGTH_TRUE_MARTIAL.getNameKey(), "Great Strength True Martial");
+        add(ModExtremePhysique.CAREFREE_WISDOM_HEART.getNameKey(), "Carefree Wisdom Heart");
+        add(ModExtremePhysique.CENTRAL_EARTH_ESSENCE.getNameKey(), "Central Earth Essence");
+        add(ModExtremePhysique.UNIVERSE_GREAT_DERIVATION.getNameKey(), "Universe Great Derivation");
+        add(ModExtremePhysique.PURE_DREAM_REALITY_SEEKER.getNameKey(), "Pure Dream Reality Seeker");
+        add(ModExtremePhysique.NULL.getNameKey(), "");
     }
 }

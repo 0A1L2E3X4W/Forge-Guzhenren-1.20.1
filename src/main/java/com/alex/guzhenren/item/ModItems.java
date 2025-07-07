@@ -5,6 +5,7 @@ import com.alex.guzhenren.item.custom.gu.special.PrimevalElderGu;
 import com.alex.guzhenren.item.custom.gu_materials.PrimevalStone;
 import com.alex.guzhenren.item.custom.gu.special.LifespanGu;
 import com.alex.guzhenren.item.custom.gu.special.Hope;
+import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -33,10 +34,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> PRIMEVAL_ELDER_GU_3 = ITEMS.register("primeval_elder_3",
             () -> new PrimevalElderGu(new Item.Properties().stacksTo(64),
-                    ModRank.THREE, 320000, 100000));
+                    ModRank.THREE, ModPath.HUMAN, 320000, 100000));
     public static final RegistryObject<Item> PRIMEVAL_ELDER_GU_4 = ITEMS.register("primeval_elder_4",
             () -> new PrimevalElderGu(new Item.Properties().stacksTo(64),
-                    ModRank.FOUR, 640000, 1000000));
+                    ModRank.FOUR, ModPath.HUMAN, 640000, 1000000));
 
     // ========== FOODS ==========
     public static final RegistryObject<Item> LIQUOR = ITEMS.register("liquor",

@@ -1,5 +1,6 @@
 package com.alex.guzhenren.item.custom;
 
+import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -16,12 +17,14 @@ import java.util.List;
 
 public class ModCustomItem extends Item {
 
-    public ModCustomItem(Properties properties, ModRank rank) {
+    public ModCustomItem(Properties properties, ModRank rank, ModPath path) {
         super(properties);
         this.rank = rank;
+        this.path = path;
     }
 
     protected ModRank rank;
+    protected ModPath path;
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(
@@ -37,7 +40,8 @@ public class ModCustomItem extends Item {
             @Nullable Level level,
             @NotNull List<Component> tooltip,
             @NotNull TooltipFlag isAdvanced) {
-        tooltip.add(Component.translatable(rank.getNameKey()).withStyle(style -> style.withColor(0xAA00AA)));
+        tooltip.add(Component.translatable(rank.getNameKey()).withStyle(style -> style.withColor(0xAA00AA))
+                .append(" ").append(Component.translatable(path.getNameKey())));
         super.appendHoverText(itemStack, level, tooltip, isAdvanced);
     }
 }
