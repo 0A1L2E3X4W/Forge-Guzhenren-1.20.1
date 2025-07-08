@@ -3,6 +3,7 @@ package com.alex.guzhenren.utils.capability;
 import com.alex.guzhenren.capability.PlayerAptitudes;
 import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
 import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
+import com.alex.guzhenren.utils.enums.ModExtremePhysique;
 import com.alex.guzhenren.utils.enums.ModRank;
 import com.alex.guzhenren.utils.enums.ModStage;
 import com.alex.guzhenren.utils.enums.ModTalent;
@@ -120,5 +121,16 @@ public class PlayerAptitudesUtils {
 
     public static void setTalent(Player player, ModTalent talent) {
         modifyAndSync(player, aptitude -> aptitude.setTalent(talent));
+    }
+
+    // EXTREME PHYSIQUE
+    public static ModExtremePhysique getExtremePhysique(Player player) {
+        return getAptitude(player)
+                .map(PlayerAptitudes::getExtremePhysique)
+                .orElse(ModExtremePhysique.NULL);
+    }
+
+    public static void setExtremePhysique(Player player, ModExtremePhysique extremePhysique) {
+        modifyAndSync(player, aptitude -> aptitude.setExtremePhysique(extremePhysique));
     }
 }

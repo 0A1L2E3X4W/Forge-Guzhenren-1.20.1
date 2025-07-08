@@ -1,4 +1,4 @@
-package com.alex.guzhenren.compat;
+package com.alex.guzhenren.compat.jei;
 
 import com.alex.guzhenren.Guzhenren;
 import mezz.jei.api.IModPlugin;

@@ -59,12 +59,15 @@ public class ModLangEnUsProvider extends LanguageProvider {
 
     private void addGuiHudTextTranslations() {
         add("guzhenren.text.screen_title", "TITLE");
+
         add("guzhenren.text.essence", "Essence");
         add("guzhenren.text.rank", "Rank");
         add("guzhenren.text.lifespan", "Lifespan");
         add("guzhenren.text.thoughts", "Thoughts");
         add("guzhenren.text.talent", "Talent");
+        add("guzhenren.text.physique", "Physique");
         add("guzhenren.text.storage", "Storage");
+
         add("guzhenren.text.refinement_progress", "Refinement Progress");
         add("guzhenren.text.refinement_done", "Refinement Done");
 

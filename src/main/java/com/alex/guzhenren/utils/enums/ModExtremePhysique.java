@@ -1,5 +1,7 @@
 package com.alex.guzhenren.utils.enums;
 
+import java.util.List;
+
 public enum ModExtremePhysique {
 
     NULL("enums.guzhenren.extreme_physique.null"),
@@ -23,4 +25,18 @@ public enum ModExtremePhysique {
 
     // GETTERS
     public String getNameKey() { return nameKey; }
+    public static List<ModExtremePhysique> getNaturalPhysiques() {
+        return List.of(
+            VERDANT_GREAT_SUN,
+            DESOLATE_ANCIENT_MOON,
+            NORTHERN_DARK_ICE_SOUL,
+            BOUNDLESS_FOREST_SAMSARA,
+            BLAZING_GLORY_LIGHTNING_BRILLIANCE,
+            MYRIAD_GOLD_WONDROUS_ESSENCE,
+            GREAT_STRENGTH_TRUE_MARTIAL,
+            CAREFREE_WISDOM_HEART,
+            UNIVERSE_GREAT_DERIVATION,
+            CENTRAL_EARTH_ESSENCE
+        );
+    }
 }

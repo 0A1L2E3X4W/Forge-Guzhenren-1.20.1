@@ -60,12 +60,15 @@ public class ModLangZhCnProvider extends LanguageProvider {
 
     private void addGuiHudTextTranslations() {
         add("guzhenren.text.screen_title", "TITLE");
+
         add("guzhenren.text.rank", "修为");
         add("guzhenren.text.essence", "真元");
         add("guzhenren.text.lifespan", "寿命");
         add("guzhenren.text.thoughts", "念头");
         add("guzhenren.text.talent", "资质");
+        add("guzhenren.text.physique", "体质");
         add("guzhenren.text.storage", "元石存储");
+
         add("guzhenren.text.refinement_progress", "炼化进度");
         add("guzhenren.text.refinement_done", "已炼化");
 

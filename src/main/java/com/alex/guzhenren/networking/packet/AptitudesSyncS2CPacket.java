@@ -20,15 +20,16 @@ public class AptitudesSyncS2CPacket {
     private final ModRank rank;
     private final ModStage stage;
     private final ModTalent talent;
+    private final ModExtremePhysique extremePhysique;
 
     public AptitudesSyncS2CPacket(
             float lifespan, float thoughts,
             int soul, int luck, int moral,
-            ModRank rank, ModStage stage, ModTalent talent
+            ModRank rank, ModStage stage, ModTalent talent, ModExtremePhysique extremePhysique
     ) {
         this.lifespan = lifespan; this.thoughts = thoughts;
         this.soul = soul; this.luck = luck; this.moral = moral;
-        this.rank = rank; this.stage = stage; this.talent = talent;
+        this.rank = rank; this.stage = stage; this.talent = talent; this.extremePhysique = extremePhysique;
     }
 
     public AptitudesSyncS2CPacket(FriendlyByteBuf buf) {
@@ -40,6 +41,7 @@ public class AptitudesSyncS2CPacket {
         rank     = buf.readEnum(ModRank.class);
         stage    = buf.readEnum(ModStage.class);
         talent   = buf.readEnum(ModTalent.class);
+        extremePhysique = buf.readEnum(ModExtremePhysique.class);
 
     }
 
@@ -52,6 +54,7 @@ public class AptitudesSyncS2CPacket {
         buf.writeEnum(rank);
         buf.writeEnum(stage);
         buf.writeEnum(talent);
+        buf.writeEnum(extremePhysique);
     }
 
     public void handle(Supplier<NetworkEvent.Context> supplier) {
@@ -65,6 +68,7 @@ public class AptitudesSyncS2CPacket {
             ClientAptitudesData.setRank(rank);
             ClientAptitudesData.setStage(stage);
             ClientAptitudesData.setTalent(talent);
+            ClientAptitudesData.setExtremePhysique(extremePhysique);
         });
     }
 
@@ -72,7 +76,7 @@ public class AptitudesSyncS2CPacket {
         ModMessage.sendToPlayer(new AptitudesSyncS2CPacket(
                 aptitudes.getLifespan(), aptitudes.getThoughts(),
                 aptitudes.getSoul(), aptitudes.getLuck(), aptitudes.getMoral(),
-                aptitudes.getRank(), aptitudes.getStage(), aptitudes.getTalent()),
+                aptitudes.getRank(), aptitudes.getStage(), aptitudes.getTalent(), aptitudes.getExtremePhysique()),
                 serverPlayer);
     }
 }

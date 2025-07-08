@@ -15,6 +15,8 @@ public class ClientAptitudesData {
     private static ModStage stage;
     private static ModTalent talent;
 
+    private static ModExtremePhysique extremePhysique;
+
     // GETTER & SETTER
     public static float getLifespan() { return lifespan; }
     public static void setLifespan(float v) { ClientAptitudesData.lifespan = v; }
@@ -39,4 +41,7 @@ public class ClientAptitudesData {
 
     public static ModTalent getTalent() { return talent; }
     public static void setTalent(ModTalent talent) { ClientAptitudesData.talent = talent; }
+
+    public static ModExtremePhysique getExtremePhysique() { return extremePhysique; }
+    public static void setExtremePhysique(ModExtremePhysique extremePhysique) { ClientAptitudesData.extremePhysique = extremePhysique; }
 }

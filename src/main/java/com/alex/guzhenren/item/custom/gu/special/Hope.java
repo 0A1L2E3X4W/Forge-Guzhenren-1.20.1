@@ -1,13 +1,10 @@
 package com.alex.guzhenren.item.custom.gu.special;
 
-import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
-import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
-import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
 import com.alex.guzhenren.item.custom.ModCustomItem;
-import com.alex.guzhenren.utils.enums.ModPath;
-import com.alex.guzhenren.utils.enums.ModRank;
-import com.alex.guzhenren.utils.enums.ModStage;
-import com.alex.guzhenren.utils.enums.ModTalent;
+import com.alex.guzhenren.utils.capability.PlayerAptitudesUtils;
+import com.alex.guzhenren.utils.capability.PlayerEssenceUtils;
+import com.alex.guzhenren.utils.capability.PlayerFlagsUtils;
+import com.alex.guzhenren.utils.enums.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -39,36 +36,24 @@ public class Hope extends ModCustomItem {
             return InteractionResultHolder.pass(itemStack);
         }
 
-        var essenceCap = player.getCapability(PlayerEssenceProvider.PLAYER_ESSENCE);
-        var aptitudeCap = player.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE);
-        var flagsCap = player.getCapability(PlayerFlagsProvider.PLAYER_FLAGS);
-
-        if (!essenceCap.isPresent() || !aptitudeCap.isPresent() || !flagsCap.isPresent()) {
-            return InteractionResultHolder.fail(itemStack);
-        }
-
-        var essence = essenceCap.resolve().orElseThrow(
-                () -> new IllegalStateException("PlayerEssence capability not resolved"));;
-        var aptitude = aptitudeCap.resolve().orElseThrow(
-                () -> new IllegalStateException("PlayerAptitude capability not resolved"));;
-        var flags = flagsCap.resolve().orElseThrow(
-                () -> new IllegalStateException("PlayerFlags capability nor resolved"));
-
-        boolean isAwaken = flags.isAwaken();
-
+        boolean isAwaken = PlayerFlagsUtils.isApertureAwaken(player);
         if (isAwaken) {
             return InteractionResultHolder.fail(itemStack);
         }
 
-        ModTalent talent = getRandomTalent();
-        int maxEssence = getMaxEssence(talent);
+        ModTalent talent = generateRandomTalent();
+        ModExtremePhysique extremePhysique = generateExtremePhysique(talent);
+        int maxEssence = generateMaxEssence(talent);
 
-        aptitude.setTalent(talent);
-        aptitude.setRank(ModRank.ONE);
-        aptitude.setStage(ModStage.INIT);
-        essence.setMaxEssence(maxEssence);
-        essence.setCurrentEssence(maxEssence * 0.8f);
-        flags.setAwaken(true);
+        PlayerAptitudesUtils.setTalent(player, talent);
+        PlayerAptitudesUtils.setRank(player, ModRank.ONE);
+        PlayerAptitudesUtils.setStage(player, ModStage.INIT);
+        PlayerAptitudesUtils.setExtremePhysique(player, extremePhysique);
+
+        PlayerEssenceUtils.setMaxEssence(player, maxEssence);
+        PlayerEssenceUtils.setCurrentEssence(player, maxEssence * 0.8f);
+
+        PlayerFlagsUtils.setApertureAwaken(player, true);
 
         player.getCooldowns().addCooldown(this, 3);
         if (!player.getAbilities().instabuild) { itemStack.shrink(1); }
@@ -86,7 +71,7 @@ public class Hope extends ModCustomItem {
                 .withStyle(style -> style.withColor(0xFFD700)));
     }
 
-    private ModTalent getRandomTalent() {
+    private ModTalent generateRandomTalent() {
         int r = ThreadLocalRandom.current().nextInt(100);
         if (r < 25) return ModTalent.D;       // 25% 概率
         if (r < 50) return ModTalent.C;       // 25% 概率 (累计50%)
@@ -95,7 +80,7 @@ public class Hope extends ModCustomItem {
         return ModTalent.TEN_EXTREME;         // 10% 概率
     }
 
-    private int getMaxEssence(ModTalent talent) {
+    private int generateMaxEssence(ModTalent talent) {
         return switch (talent) {
             case TEN_EXTREME -> 100000;
             case A -> ThreadLocalRandom.current().nextInt(80000, 100000);  // [80000, 99999]
@@ -104,5 +89,12 @@ public class Hope extends ModCustomItem {
             case D -> ThreadLocalRandom.current().nextInt(20000, 40000);   // [20000, 39999]
             default -> ThreadLocalRandom.current().nextInt(10000, 100001); // [10000, 100000]
         };
+    }
+
+    private ModExtremePhysique generateExtremePhysique(ModTalent talent) {
+        if (talent != ModTalent.TEN_EXTREME) return ModExtremePhysique.NULL;
+        List<ModExtremePhysique> naturalPhysique = ModExtremePhysique.getNaturalPhysiques();
+        int r = ThreadLocalRandom.current().nextInt(naturalPhysique.size());
+        return naturalPhysique.get(r);
     }
 }

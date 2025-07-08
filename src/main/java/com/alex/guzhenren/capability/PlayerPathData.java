@@ -21,7 +21,7 @@ public class PlayerPathData {
     public PlayerPathData() {
         for (ModPath path : ModPath.values()) {
             setPathAttainment(path, DEFAULT_PATH_ATTAINMENT);
-            setPathRealms(path, DEFAULT_PATH_REALM);
+            setPathRealm(path, DEFAULT_PATH_REALM);
         }
     }
 
@@ -56,7 +56,7 @@ public class PlayerPathData {
         return pathRealms.getOrDefault(path, DEFAULT_PATH_REALM);
     }
 
-    public void setPathRealms(ModPath path, ModPathRealm realm) {
+    public void setPathRealm(ModPath path, ModPathRealm realm) {
         pathRealms.put(path, realm);
     }
 
@@ -98,7 +98,7 @@ public class PlayerPathData {
         if (pathNbt.contains(KEY_PATH_REALMS)) {
             CompoundTag pathRealmNbt = pathNbt.getCompound(KEY_PATH_REALMS);
             for (ModPath path : ModPath.values()) {
-                setPathRealms(path, ModPathRealm.valueOf(pathRealmNbt.getString(path.name())));
+                setPathRealm(path, ModPathRealm.valueOf(pathRealmNbt.getString(path.name())));
             }
         }
     }

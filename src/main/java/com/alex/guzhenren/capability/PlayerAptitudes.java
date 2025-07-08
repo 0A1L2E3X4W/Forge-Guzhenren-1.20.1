@@ -1,5 +1,6 @@
 package com.alex.guzhenren.capability;
 
+import com.alex.guzhenren.utils.enums.ModExtremePhysique;
 import com.alex.guzhenren.utils.enums.ModRank;
 import com.alex.guzhenren.utils.enums.ModStage;
 import com.alex.guzhenren.utils.enums.ModTalent;
@@ -16,6 +17,7 @@ public class PlayerAptitudes {
     private static final String KEY_RANK = "guzhenren.player.rank";
     private static final String KEY_STAGE = "guzhenren.player.stage";
     private static final String KEY_TALENT = "guzhenren.player.talent";
+    private static final String KEY_EXTREME_PHYSIQUE = "guzhenren.player.extreme_physique";
 
     // Default values for new players
     private static final float DEFAULT_LIFESPAN = 100.0f;
@@ -26,6 +28,7 @@ public class PlayerAptitudes {
     private static final ModRank DEFAULT_RANK = ModRank.MORTAL;
     private static final ModStage DEFAULT_STAGE = ModStage.NULL;
     private static final ModTalent DEFAULT_TALENT = ModTalent.NULL;
+    private static final ModExtremePhysique DEFAULT_EXTREME_PHYSIQUE = ModExtremePhysique.NULL;
 
     // Player attributes
     private float lifespan = DEFAULT_LIFESPAN;
@@ -36,6 +39,7 @@ public class PlayerAptitudes {
     private ModRank rank = DEFAULT_RANK;
     private ModStage stage = DEFAULT_STAGE;
     private ModTalent talent = DEFAULT_TALENT;
+    private ModExtremePhysique extremePhysique = DEFAULT_EXTREME_PHYSIQUE;
 
     // GETTER & SETTER
     public float getLifespan() { return lifespan; }
@@ -72,12 +76,15 @@ public class PlayerAptitudes {
     public ModTalent getTalent() { return talent; }
     public void setTalent(ModTalent modTalent) { talent = modTalent; }
 
+    public ModExtremePhysique getExtremePhysique() { return extremePhysique; }
+    public void setExtremePhysique(ModExtremePhysique modExtremePhysique) { extremePhysique = modExtremePhysique; }
+
     // COPY FROM
     public void copyFrom(PlayerAptitudes source) {
         if (source == null) { return; }
         lifespan = source.lifespan; thoughts = source.thoughts;
         soul = source.soul; luck = source.luck; moral = source.moral;
-        rank = source.rank; stage = source.stage; talent = source.talent;
+        rank = source.rank; stage = source.stage; talent = source.talent; extremePhysique = source.extremePhysique;
     }
 
     // NBT DATA
@@ -90,6 +97,7 @@ public class PlayerAptitudes {
         nbt.putString(KEY_RANK, rank.name());
         nbt.putString(KEY_STAGE, stage.name());
         nbt.putString(KEY_TALENT, talent.name());
+        nbt.putString(KEY_EXTREME_PHYSIQUE, extremePhysique.name());
     }
 
     public void loadNbtData(CompoundTag nbt) {
@@ -102,5 +110,6 @@ public class PlayerAptitudes {
         setRank(nbt.contains(KEY_RANK) ? ModRank.valueOf(nbt.getString(KEY_RANK)) : DEFAULT_RANK);
         setStage(nbt.contains(KEY_STAGE) ? ModStage.valueOf(nbt.getString(KEY_STAGE)) : DEFAULT_STAGE);
         setTalent(nbt.contains(KEY_TALENT) ? ModTalent.valueOf(nbt.getString(KEY_TALENT)) : DEFAULT_TALENT);
+        setExtremePhysique(nbt.contains(KEY_EXTREME_PHYSIQUE) ? ModExtremePhysique.valueOf(nbt.getString(KEY_EXTREME_PHYSIQUE)) : DEFAULT_EXTREME_PHYSIQUE);
     }
 }

@@ -106,22 +106,27 @@ public class ClientStatsGuiOverlay extends Screen {
                 .append(": ").append(Component.translatable(playerTalent.getNameKey()));
         guiGraphics.drawString(minecraft.font, component, 20, 50, TEXT_COLOR, true);
 
+        ModExtremePhysique playerExtremePhysique = ClientAptitudesData.getExtremePhysique();
+        component = Component.translatable("guzhenren.text.physique")
+                .append(": ").append(Component.translatable(playerExtremePhysique.getNameKey()));
+        guiGraphics.drawString(minecraft.font, component, 20, 65, TEXT_COLOR, true);
+
         float playerLifespan = ClientAptitudesData.getLifespan();
         text = String.format("%.1f", playerLifespan);
         component = Component.translatable("guzhenren.text.lifespan").append(": " + text);
-        guiGraphics.drawString(minecraft.font, component, 20, 65, TEXT_COLOR, true);
+        guiGraphics.drawString(minecraft.font, component, 20, 80, TEXT_COLOR, true);
 
         float playerThoughts = ClientAptitudesData.getThoughts();
         text = String.format("%.1f", playerThoughts);
         component = Component.translatable("guzhenren.text.thoughts").append(": " + text);
-        guiGraphics.drawString(minecraft.font, component, 20, 80, TEXT_COLOR, true);
+        guiGraphics.drawString(minecraft.font, component, 20, 95, TEXT_COLOR, true);
     }
 
     private void attainmentsPage(GuiGraphics guiGraphics) {
-        int baseX = 20;
-        int baseY = 20;
+        int baseX = 40;
+        int baseY = 25;
         int lineHeight = 16;
-        int columnWidth = 80;
+        int columnWidth = 100;
         Minecraft minecraft = Minecraft.getInstance();
 
         int i = 0;
@@ -141,10 +146,10 @@ public class ClientStatsGuiOverlay extends Screen {
     }
 
     private void realmsPage(GuiGraphics guiGraphics) {
-        int baseX = 20;
-        int baseY = 20;
+        int baseX = 40;
+        int baseY = 25;
         int lineHeight = 16;
-        int columnWidth = 80;
+        int columnWidth = 100;
         Minecraft minecraft = Minecraft.getInstance();
 
         int i = 0;
