@@ -2,11 +2,11 @@ package com.alex.guzhenren.utils.enums;
 
 public enum ModStage {
 
-    NULL("guzhenren.stage.null", 0.00F),
-    INIT("guzhenren.stage.init", 0.00F),
-    MID("guzhenren.stage.mid", 0.50F),
-    UPPER("guzhenren.stage.upper", 1.50F),
-    PEAK("guzhenren.stage.peak", 3.00F);
+    NULL("enums.guzhenren.stage.null", 0.00F),
+    INIT("enums.guzhenren.stage.init", 0.00F),
+    MID("enums.guzhenren.stage.mid", 0.50F),
+    UPPER("enums.guzhenren.stage.upper", 1.50F),
+    PEAK("enums.guzhenren.stage.peak", 3.00F);
 
     private final String nameKey;
     private final float essenceModifier;

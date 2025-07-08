@@ -2,12 +2,12 @@ package com.alex.guzhenren.utils.enums;
 
 public enum ModTalent {
 
-    A("guzhenren.talent.a"),
-    B("guzhenren.talent.b"),
-    C("guzhenren.talent.c"),
-    D("guzhenren.talent.d"),
-    TEN_EXTREME("guzhenren.talent.ten_extreme"),
-    NULL("guzhenren.talent.null");
+    A("enums.guzhenren.talent.a"),
+    B("enums.guzhenren.talent.b"),
+    C("enums.guzhenren.talent.c"),
+    D("enums.guzhenren.talent.d"),
+    TEN_EXTREME("enums.guzhenren.talent.ten_extreme"),
+    NULL("enums.guzhenren.talent.null");
 
     private final String nameKey;
     ModTalent(String key) { this.nameKey = key; }

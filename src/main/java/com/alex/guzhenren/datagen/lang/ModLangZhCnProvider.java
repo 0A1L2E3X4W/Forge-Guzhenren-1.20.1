@@ -55,6 +55,7 @@ public class ModLangZhCnProvider extends LanguageProvider {
         addModStageTranslations();
         addModPathTranslations();
         addExtremePhysiqueTranslations();
+        addPathRealmsTranslations();
     }
 
     private void addGuiHudTextTranslations() {
@@ -67,6 +68,10 @@ public class ModLangZhCnProvider extends LanguageProvider {
         add("guzhenren.text.storage", "元石存储");
         add("guzhenren.text.refinement_progress", "炼化进度");
         add("guzhenren.text.refinement_done", "已炼化");
+
+        add("guzhenren.text.button.main_page", "主页");
+        add("guzhenren.text.button.attainments_page", "流派道痕");
+        add("guzhenren.text.button.realms_page", "流派境界");
     }
 
     private void addModPathTranslations() {
@@ -157,5 +162,15 @@ public class ModLangZhCnProvider extends LanguageProvider {
         add(ModExtremePhysique.UNIVERSE_GREAT_DERIVATION.getNameKey(), "宇宙大衍体");
         add(ModExtremePhysique.PURE_DREAM_REALITY_SEEKER.getNameKey(), "纯梦求真体");
         add(ModExtremePhysique.NULL.getNameKey(), "");
+    }
+
+    private void addPathRealmsTranslations() {
+        add(ModPathRealm.ORDINARY.getNameKey(), "无");
+        add(ModPathRealm.QUASI_MASTER.getNameKey(), "准大师");
+        add(ModPathRealm.MASTER.getNameKey(), "大师");
+        add(ModPathRealm.QUASI_GRANDMASTER.getNameKey(), "准大宗师");
+        add(ModPathRealm.GRANDMASTER.getNameKey(), "大宗师");
+        add(ModPathRealm.QUASI_SUPREME_GRANDMASTER.getNameKey(), "准无上大宗师");
+        add(ModPathRealm.SUPREME_GRANDMASTER.getNameKey(), "无上大宗师");
     }
 }

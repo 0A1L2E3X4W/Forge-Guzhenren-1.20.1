@@ -2,13 +2,13 @@ package com.alex.guzhenren.utils.enums;
 
 public enum ModPathRealm {
 
-    ORDINARY("guzhenren.title.ordinary"),
-    QUASI_MASTER("guzhenren.title.quasi_master"),
-    MASTER("guzhenren.title.master"),
-    QUASI_GRANDMASTER("guzhenren.title.quasi_grandmaster"),
-    GRANDMASTER("guzhenren.title.grandmaster"),
-    QUASI_SUPREME_GRANDMASTER("guzhenren.title.quasi_supreme_grandmaster"),
-    SUPREME_GRANDMASTER("guzhenren.title.supreme_grandmaster");
+    ORDINARY("enums.guzhenren.realms.ordinary"),
+    QUASI_MASTER("enums.guzhenren.realms.quasi_master"),
+    MASTER("enums.guzhenren.realms.master"),
+    QUASI_GRANDMASTER("enums.guzhenren.realms.quasi_grandmaster"),
+    GRANDMASTER("enums.guzhenren.realms.grandmaster"),
+    QUASI_SUPREME_GRANDMASTER("enums.guzhenren.realms.quasi_supreme_grandmaster"),
+    SUPREME_GRANDMASTER("enums.guzhenren.realms.supreme_grandmaster");
 
     private final String nameKey;
 

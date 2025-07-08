@@ -54,6 +54,7 @@ public class ModLangEnUsProvider extends LanguageProvider {
         addModStageTranslations();
         addModPathTranslations();
         addExtremePhysiqueTranslations();
+        addPathRealmsTranslations();
     }
 
     private void addGuiHudTextTranslations() {
@@ -66,6 +67,10 @@ public class ModLangEnUsProvider extends LanguageProvider {
         add("guzhenren.text.storage", "Storage");
         add("guzhenren.text.refinement_progress", "Refinement Progress");
         add("guzhenren.text.refinement_done", "Refinement Done");
+
+        add("guzhenren.text.button.main_page", "Main");
+        add("guzhenren.text.button.attainments_page", "Attainments");
+        add("guzhenren.text.button.realms_page", "Realms");
     }
 
     private void addModPathTranslations() {
@@ -156,5 +161,15 @@ public class ModLangEnUsProvider extends LanguageProvider {
         add(ModExtremePhysique.UNIVERSE_GREAT_DERIVATION.getNameKey(), "Universe Great Derivation");
         add(ModExtremePhysique.PURE_DREAM_REALITY_SEEKER.getNameKey(), "Pure Dream Reality Seeker");
         add(ModExtremePhysique.NULL.getNameKey(), "");
+    }
+
+    private void addPathRealmsTranslations() {
+        add(ModPathRealm.ORDINARY.getNameKey(), "Ordinary");
+        add(ModPathRealm.QUASI_MASTER.getNameKey(), "Quasi-Master");
+        add(ModPathRealm.MASTER.getNameKey(), "Master");
+        add(ModPathRealm.QUASI_GRANDMASTER.getNameKey(), "Quasi-GrandMaster");
+        add(ModPathRealm.GRANDMASTER.getNameKey(), "GrandMaster");
+        add(ModPathRealm.QUASI_SUPREME_GRANDMASTER.getNameKey(), "Quasi-Supreme-GrandMaster");
+        add(ModPathRealm.SUPREME_GRANDMASTER.getNameKey(), "Supreme-GrandMaster");
     }
 }
