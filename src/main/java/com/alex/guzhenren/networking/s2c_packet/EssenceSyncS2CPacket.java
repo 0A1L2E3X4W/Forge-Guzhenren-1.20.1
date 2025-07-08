@@ -1,4 +1,4 @@
-package com.alex.guzhenren.networking.packet;
+package com.alex.guzhenren.networking.s2c_packet;
 
 import com.alex.guzhenren.capability.PlayerEssence;
 import com.alex.guzhenren.client.data.ClientEssenceData;

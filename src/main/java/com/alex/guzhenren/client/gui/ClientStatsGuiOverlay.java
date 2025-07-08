@@ -4,7 +4,6 @@ import com.alex.guzhenren.client.data.ClientAptitudesData;
 import com.alex.guzhenren.client.data.ClientEssenceData;
 import com.alex.guzhenren.client.data.ClientPathData;
 import com.alex.guzhenren.utils.enums.*;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -64,10 +63,6 @@ public class ClientStatsGuiOverlay extends Screen {
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         super.render(guiGraphics, mouseX, mouseY, partialTick);
-
-        RenderSystem.enableBlend();
-        RenderSystem.defaultBlendFunc();
-
         guiGraphics.fillGradient(0, 0, this.width, this.height, BACKGROUND_COLOR, BACKGROUND_COLOR);
 
         switch (currentPage) {

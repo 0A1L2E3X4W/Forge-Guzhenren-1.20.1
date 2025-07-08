@@ -2,7 +2,7 @@ package com.alex.guzhenren.utils.capability;
 
 import com.alex.guzhenren.capability.PlayerPathData;
 import com.alex.guzhenren.capability.providers.PlayerPathDataProvider;
-import com.alex.guzhenren.networking.packet.PathDataSyncS2CPacket;
+import com.alex.guzhenren.networking.s2c_packet.PathDataSyncS2CPacket;
 import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModPathRealm;
 import net.minecraft.server.level.ServerPlayer;

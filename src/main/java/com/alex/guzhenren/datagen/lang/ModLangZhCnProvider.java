@@ -75,6 +75,8 @@ public class ModLangZhCnProvider extends LanguageProvider {
         add("guzhenren.text.button.main_page", "主页");
         add("guzhenren.text.button.attainments_page", "流派道痕");
         add("guzhenren.text.button.realms_page", "流派境界");
+        add("guzhenren.text.button.reset", "重置");
+        add("guzhenren.text.button.confirm", "确认");
     }
 
     private void addModPathTranslations() {

@@ -1,7 +1,9 @@
 package com.alex.guzhenren.networking;
 
 import com.alex.guzhenren.Guzhenren;
-import com.alex.guzhenren.networking.packet.*;
+import com.alex.guzhenren.networking.c2s_packet.ConfirmAwakenC2SPacket;
+import com.alex.guzhenren.networking.c2s_packet.ResetAwakenC2SPacket;
+import com.alex.guzhenren.networking.s2c_packet.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -44,6 +46,19 @@ public class ModMessage {
         network.messageBuilder(PathDataSyncS2CPacket.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(PathDataSyncS2CPacket::new).encoder(PathDataSyncS2CPacket::toBytes)
                 .consumerMainThread(PathDataSyncS2CPacket::handle).add();
+
+        network.messageBuilder(OpenAwakenGuiS2CPacket.class, getPacketId(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(OpenAwakenGuiS2CPacket::new).encoder(OpenAwakenGuiS2CPacket::toBytes)
+                .consumerMainThread(OpenAwakenGuiS2CPacket::handle).add();
+
+        // CLIENT TO SERVER
+        network.messageBuilder(ConfirmAwakenC2SPacket.class, getPacketId(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(ConfirmAwakenC2SPacket::new).encoder(ConfirmAwakenC2SPacket::toBytes)
+                .consumerMainThread(ConfirmAwakenC2SPacket::handle).add();
+
+        network.messageBuilder(ResetAwakenC2SPacket.class, getPacketId(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(ResetAwakenC2SPacket::new).encoder(ResetAwakenC2SPacket::toBytes)
+                .consumerMainThread(ResetAwakenC2SPacket::handle).add();
     }
 
     public static <MEG> void sendToServer(MEG message) {

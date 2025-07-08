@@ -2,7 +2,7 @@ package com.alex.guzhenren.utils.capability;
 
 import com.alex.guzhenren.capability.PlayerFlags;
 import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
-import com.alex.guzhenren.networking.packet.FlagsSyncS2CPacket;
+import com.alex.guzhenren.networking.s2c_packet.FlagsSyncS2CPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 

@@ -3,7 +3,7 @@ package com.alex.guzhenren.event;
 import com.alex.guzhenren.Guzhenren;
 import com.alex.guzhenren.capability.*;
 import com.alex.guzhenren.capability.providers.*;
-import com.alex.guzhenren.networking.packet.*;
+import com.alex.guzhenren.networking.s2c_packet.*;
 import com.alex.guzhenren.utils.capability.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;

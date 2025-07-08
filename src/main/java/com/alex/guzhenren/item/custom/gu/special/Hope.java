@@ -1,11 +1,13 @@
 package com.alex.guzhenren.item.custom.gu.special;
 
 import com.alex.guzhenren.item.custom.ModCustomItem;
+import com.alex.guzhenren.networking.s2c_packet.OpenAwakenGuiS2CPacket;
 import com.alex.guzhenren.utils.capability.PlayerAptitudesUtils;
 import com.alex.guzhenren.utils.capability.PlayerEssenceUtils;
 import com.alex.guzhenren.utils.capability.PlayerFlagsUtils;
 import com.alex.guzhenren.utils.enums.*;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -54,6 +56,8 @@ public class Hope extends ModCustomItem {
         PlayerEssenceUtils.setCurrentEssence(player, maxEssence * 0.8f);
 
         PlayerFlagsUtils.setApertureAwaken(player, true);
+
+        OpenAwakenGuiS2CPacket.send((ServerPlayer) player);
 
         player.getCooldowns().addCooldown(this, 3);
         if (!player.getAbilities().instabuild) { itemStack.shrink(1); }

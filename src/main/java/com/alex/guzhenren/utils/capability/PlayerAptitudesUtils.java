@@ -2,7 +2,7 @@ package com.alex.guzhenren.utils.capability;
 
 import com.alex.guzhenren.capability.PlayerAptitudes;
 import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
-import com.alex.guzhenren.networking.packet.AptitudesSyncS2CPacket;
+import com.alex.guzhenren.networking.s2c_packet.AptitudesSyncS2CPacket;
 import com.alex.guzhenren.utils.enums.ModExtremePhysique;
 import com.alex.guzhenren.utils.enums.ModRank;
 import com.alex.guzhenren.utils.enums.ModStage;

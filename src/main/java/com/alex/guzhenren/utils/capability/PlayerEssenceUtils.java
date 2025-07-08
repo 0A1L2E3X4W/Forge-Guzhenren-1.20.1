@@ -2,7 +2,7 @@ package com.alex.guzhenren.utils.capability;
 
 import com.alex.guzhenren.capability.PlayerEssence;
 import com.alex.guzhenren.capability.providers.PlayerEssenceProvider;
-import com.alex.guzhenren.networking.packet.EssenceSyncS2CPacket;
+import com.alex.guzhenren.networking.s2c_packet.EssenceSyncS2CPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 

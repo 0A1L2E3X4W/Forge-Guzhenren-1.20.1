@@ -74,6 +74,8 @@ public class ModLangEnUsProvider extends LanguageProvider {
         add("guzhenren.text.button.main_page", "Main");
         add("guzhenren.text.button.attainments_page", "Attainments");
         add("guzhenren.text.button.realms_page", "Realms");
+        add("guzhenren.text.button.reset", "Reset");
+        add("guzhenren.text.button.confirm", "Confirm");
     }
 
     private void addModPathTranslations() {
