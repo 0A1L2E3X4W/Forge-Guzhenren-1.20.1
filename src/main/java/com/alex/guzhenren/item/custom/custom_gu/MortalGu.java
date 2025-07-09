@@ -1,5 +1,6 @@
-package com.alex.guzhenren.item.custom;
+package com.alex.guzhenren.item.custom.custom_gu;
 
+import com.alex.guzhenren.item.custom.CustomItem;
 import com.alex.guzhenren.utils.capability.PlayerAptitudesUtils;
 import com.alex.guzhenren.utils.capability.PlayerEssenceUtils;
 import com.alex.guzhenren.utils.enums.ModPath;
@@ -10,22 +11,27 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.logging.Level;
 
-public class MortalGu extends ModCustomItem {
+public class MortalGu extends CustomItem {
 
     public MortalGu(Properties properties, ModRank rank, ModPath path, int refinementCost) {
-        super(properties, rank, path);
+        super(properties);
+        this.rank = rank; this.path = path;
         this.refinementCost = refinementCost;
     }
 
     public static final String KEY_REFINE = "key.guzhenren.item.refine";
     public static final String KEY_CAN_USE = "key.guzhenren.item.can_use";
 
-    protected ModRank itemRank;
+    protected ModRank rank;
+    protected ModPath path;
+
     protected int refinementCost;
     protected float refineValue = refinementCost / 12.0F;
 
@@ -82,8 +88,7 @@ public class MortalGu extends ModCustomItem {
     }
 
     // TOOLTIPS
-    protected static void refinementTooltips(
-            @NotNull ItemStack itemStack, @NotNull List<Component> tooltip, int refinementCost) {
+    protected static void refinementTooltips(@NotNull ItemStack itemStack, @NotNull List<Component> tooltip, int refinementCost) {
 
         float refinement = itemStack.getOrCreateTag().getFloat(KEY_REFINE);
         if (refinement < refinementCost) {
@@ -95,7 +100,22 @@ public class MortalGu extends ModCustomItem {
     }
 
     // GETTERS
-    public ModRank getItemRank() { return itemRank; }
+    public ModRank getRank() { return rank; }
+    public ModPath getPath() { return path; }
     public int getRefinementCost() { return refinementCost; }
     public float getRefineValue() { return refineValue; }
+
+    @Override
+    public void appendHoverText(
+            @NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag isAdvanced) {
+        super.appendHoverText(itemStack, level, tooltip, isAdvanced);
+
+        String rankKey = rank.getNameKey();
+        String pathKey = path.getNameKey();
+
+        Component text = Component.translatable(rankKey).append(" ").append(Component.translatable(pathKey))
+                .withStyle(style -> style.withColor(0xAA00AA));
+
+        tooltip.add(text);
+    }
 }

@@ -1,9 +1,8 @@
-package com.alex.guzhenren.item.custom.gu.special;
+package com.alex.guzhenren.item.custom.custom_gu.heaven;
 
-import com.alex.guzhenren.capability.PlayerFlags;
-import com.alex.guzhenren.capability.providers.PlayerAptitudesProvider;
-import com.alex.guzhenren.capability.providers.PlayerFlagsProvider;
-import com.alex.guzhenren.item.custom.ModCustomItem;
+import com.alex.guzhenren.item.custom.CustomItem;
+import com.alex.guzhenren.utils.capability.PlayerAptitudesUtils;
+import com.alex.guzhenren.utils.capability.PlayerFlagsUtils;
 import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.network.chat.Component;
@@ -18,10 +17,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class LifespanGu extends ModCustomItem {
+public class LifespanGu extends CustomItem {
 
     public LifespanGu(Properties properties, int lifespan) {
-        super(properties, ModRank.ONE, ModPath.HEAVEN);
+        super(properties);
         this.lifespan = lifespan;
     }
 
@@ -29,25 +28,19 @@ public class LifespanGu extends ModCustomItem {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(
-            @NotNull Level level,
-            @NotNull Player player,
-            @NotNull InteractionHand usedHand) {
+            @NotNull Level level, @NotNull Player player, @NotNull InteractionHand usedHand) {
+
         ItemStack itemStack = player.getItemInHand(usedHand);
 
         if (level.isClientSide()) {
             return InteractionResultHolder.pass(itemStack);
         }
 
-        boolean isAwaken = player.getCapability(PlayerFlagsProvider.PLAYER_FLAGS)
-                .map(PlayerFlags::isAwaken).orElse(false);
-
-        if (!isAwaken) {
+        if (!PlayerFlagsUtils.isApertureAwaken(player)) {
             return InteractionResultHolder.fail(itemStack);
         }
 
-        player.getCapability(PlayerAptitudesProvider.PLAYER_APTITUDE).ifPresent(aptitudes -> {
-            aptitudes.addLifespan(lifespan);
-        });
+        PlayerAptitudesUtils.addLifespan(player, lifespan);
 
         itemStack.shrink(1);
         player.getCooldowns().addCooldown(this, 3);
@@ -56,10 +49,14 @@ public class LifespanGu extends ModCustomItem {
 
     @Override
     public void appendHoverText(
-            @NotNull ItemStack itemStack,
-            @Nullable Level level,
-            @NotNull List<Component> tooltip,
-            @NotNull TooltipFlag isAdvanced) {
+            @NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag isAdvanced) {
+
+        Component commonStats = Component.translatable(ModRank.ONE.getNameKey()).append(" ")
+                .append(Component.translatable(ModPath.HEAVEN.getNameKey()))
+                .withStyle(style -> style.withColor(0xAA00AA));
+
+        tooltip.add(commonStats);
+
         super.appendHoverText(itemStack, level, tooltip, isAdvanced);
     }
 }

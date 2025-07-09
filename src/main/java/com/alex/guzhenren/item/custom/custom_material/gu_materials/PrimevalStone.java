@@ -1,6 +1,6 @@
-package com.alex.guzhenren.item.custom.gu_materials;
+package com.alex.guzhenren.item.custom.custom_material.gu_materials;
 
-import com.alex.guzhenren.item.custom.ModCustomItem;
+import com.alex.guzhenren.item.custom.custom_material.GuMaterial;
 import com.alex.guzhenren.utils.capability.PlayerEssenceUtils;
 import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class PrimevalStone extends ModCustomItem {
+public class PrimevalStone extends GuMaterial {
 
     public PrimevalStone(Properties properties, int essence) {
         super(properties, ModRank.MORTAL, ModPath.HEAVEN);
@@ -27,9 +27,7 @@ public class PrimevalStone extends ModCustomItem {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(
-            @NotNull Level level,
-            @NotNull Player player,
-            @NotNull InteractionHand usedHand) {
+            @NotNull Level level, @NotNull Player player, @NotNull InteractionHand usedHand) {
         ItemStack itemStack = player.getItemInHand(usedHand);
 
         if (level.isClientSide()) {
@@ -52,13 +50,10 @@ public class PrimevalStone extends ModCustomItem {
 
     @Override
     public void appendHoverText(
-            @NotNull ItemStack itemStack,
-            @Nullable Level level,
-            @NotNull List<Component> tooltips,
-            @NotNull TooltipFlag isAdvanced) {
+            @NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag isAdvanced) {
+        super.appendHoverText(itemStack, level, tooltip, isAdvanced);
 
-        super.appendHoverText(itemStack, level, tooltips, isAdvanced);
-        tooltips.add(Component.translatable("tooltip.guzhenren.primeval_stone")
+        tooltip.add(Component.translatable("tooltip.guzhenren.primeval_stone")
                 .withStyle(style -> style.withColor(0x87CEFA)));
     }
 }

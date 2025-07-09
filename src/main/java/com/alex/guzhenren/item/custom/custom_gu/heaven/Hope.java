@@ -1,6 +1,6 @@
-package com.alex.guzhenren.item.custom.gu.special;
+package com.alex.guzhenren.item.custom.custom_gu.heaven;
 
-import com.alex.guzhenren.item.custom.ModCustomItem;
+import com.alex.guzhenren.item.custom.CustomItem;
 import com.alex.guzhenren.networking.s2c_packet.OpenAwakenGuiS2CPacket;
 import com.alex.guzhenren.utils.capability.PlayerAptitudesUtils;
 import com.alex.guzhenren.utils.capability.PlayerEssenceUtils;
@@ -20,17 +20,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Hope extends ModCustomItem {
+public class Hope extends CustomItem {
 
     public Hope(Properties properties) {
-        super(properties, ModRank.ONE, ModPath.HEAVEN);
+        super(properties);
     }
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(
-            @NotNull Level level,
-            @NotNull Player player,
-            @NotNull InteractionHand usedHand) {
+            @NotNull Level level, @NotNull Player player, @NotNull InteractionHand usedHand) {
 
         ItemStack itemStack = player.getItemInHand(usedHand);
 
@@ -66,13 +64,17 @@ public class Hope extends ModCustomItem {
 
     @Override
     public void appendHoverText(
-            @NotNull ItemStack itemStack,
-            @Nullable Level level,
-            @NotNull List<Component> tooltip,
-            @NotNull TooltipFlag isAdvanced) {
+            @NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag isAdvanced) {
         super.appendHoverText(itemStack, level, tooltip, isAdvanced);
-        tooltip.add(Component.translatable("tooltip.guzhenren.hope")
-                .withStyle(style -> style.withColor(0xFFD700)));
+
+        Component commonStats = Component.translatable(ModRank.ONE.getNameKey()).append(" ")
+                .append(Component.translatable(ModPath.HEAVEN.getNameKey()))
+                .withStyle(style -> style.withColor(0xAA00AA));
+        Component hopeGuText = Component.translatable("tooltip.guzhenren.hope")
+                .withStyle(style -> style.withColor(0xFFD700));
+
+        tooltip.add(commonStats);
+        tooltip.add(hopeGuText);
     }
 
     private ModTalent generateRandomTalent() {

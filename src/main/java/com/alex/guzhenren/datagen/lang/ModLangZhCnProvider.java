@@ -67,6 +67,9 @@ public class ModLangZhCnProvider extends LanguageProvider {
         add("guzhenren.text.thoughts", "念头");
         add("guzhenren.text.talent", "资质");
         add("guzhenren.text.physique", "体质");
+        add("guzhenren.text.path", "流派");
+        add("guzhenren.text.realm", "境界");
+
         add("guzhenren.text.storage", "元石存储");
 
         add("guzhenren.text.refinement_progress", "炼化进度");

@@ -1,10 +1,10 @@
 package com.alex.guzhenren.item;
 
 import com.alex.guzhenren.Guzhenren;
-import com.alex.guzhenren.item.custom.gu.special.PrimevalElderGu;
-import com.alex.guzhenren.item.custom.gu_materials.PrimevalStone;
-import com.alex.guzhenren.item.custom.gu.special.LifespanGu;
-import com.alex.guzhenren.item.custom.gu.special.Hope;
+import com.alex.guzhenren.item.custom.custom_gu.human.PrimevalElderGu;
+import com.alex.guzhenren.item.custom.custom_material.gu_materials.PrimevalStone;
+import com.alex.guzhenren.item.custom.custom_gu.heaven.LifespanGu;
+import com.alex.guzhenren.item.custom.custom_gu.heaven.Hope;
 import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.world.item.Item;

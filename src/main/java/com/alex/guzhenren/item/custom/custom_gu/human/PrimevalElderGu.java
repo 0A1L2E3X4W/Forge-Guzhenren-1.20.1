@@ -1,8 +1,8 @@
-package com.alex.guzhenren.item.custom.gu.special;
+package com.alex.guzhenren.item.custom.custom_gu.human;
 
 import com.alex.guzhenren.block.ModBlocks;
 import com.alex.guzhenren.item.ModItems;
-import com.alex.guzhenren.item.custom.MortalGu;
+import com.alex.guzhenren.item.custom.custom_gu.MortalGu;
 import com.alex.guzhenren.utils.enums.ModPath;
 import com.alex.guzhenren.utils.enums.ModRank;
 import net.minecraft.nbt.CompoundTag;
@@ -31,11 +31,10 @@ public class PrimevalElderGu extends MortalGu {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(
-            @NotNull Level level,
-            @NotNull Player player,
-            @NotNull InteractionHand usedHand) {
+            @NotNull Level level, @NotNull Player player, @NotNull InteractionHand usedHand) {
 
         ItemStack itemStack = player.getItemInHand(usedHand);
+
         if (level.isClientSide()) {
             return InteractionResultHolder.pass(itemStack);
         }
@@ -62,10 +61,8 @@ public class PrimevalElderGu extends MortalGu {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack itemStack,
-                                @Nullable Level level,
-                                @NotNull List<Component> tooltip,
-                                @NotNull TooltipFlag isAdvanced) {
+    public void appendHoverText(
+            @NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag isAdvanced) {
         super.appendHoverText(itemStack, level, tooltip, isAdvanced);
         tooltip.add(Component.translatable("guzhenren.text.storage").append(": " + getStoredItems(itemStack) + "/" + maxStorage));
 

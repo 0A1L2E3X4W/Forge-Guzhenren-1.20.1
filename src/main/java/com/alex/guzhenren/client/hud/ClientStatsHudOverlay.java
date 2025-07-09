@@ -2,7 +2,7 @@ package com.alex.guzhenren.client.hud;
 
 import com.alex.guzhenren.client.data.ClientAptitudesData;
 import com.alex.guzhenren.client.data.ClientEssenceData;
-import com.alex.guzhenren.item.custom.MortalGu;
+import com.alex.guzhenren.item.custom.custom_gu.MortalGu;
 import com.alex.guzhenren.utils.enums.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;

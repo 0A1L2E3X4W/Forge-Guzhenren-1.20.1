@@ -1,4 +1,4 @@
-package com.alex.guzhenren.datagen.providers;
+package com.alex.guzhenren.datagen.providers.item;
 
 import com.alex.guzhenren.Guzhenren;
 import net.minecraft.core.HolderLookup;

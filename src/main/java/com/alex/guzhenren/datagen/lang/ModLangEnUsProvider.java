@@ -66,6 +66,9 @@ public class ModLangEnUsProvider extends LanguageProvider {
         add("guzhenren.text.thoughts", "Thoughts");
         add("guzhenren.text.talent", "Talent");
         add("guzhenren.text.physique", "Physique");
+        add("guzhenren.text.path", "Path");
+        add("guzhenren.text.realm", "Realm");
+
         add("guzhenren.text.storage", "Storage");
 
         add("guzhenren.text.refinement_progress", "Refinement Progress");
