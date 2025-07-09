@@ -22,12 +22,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.DEEPSLATE_PRIMEVAL_STONE_ORE);
         blockWithItem(ModBlocks.NETHER_PRIMEVAL_STONE_ORE);
         blockWithItem(ModBlocks.END_STONE_PRIMEVAL_STONE_ORE);
-
-        simpleBlock(ModBlocks.MOON_ORCHID.get(), models().cross(blockTexture(ModBlocks.MOON_ORCHID.get()).getPath(),
-                blockTexture(ModBlocks.MOON_ORCHID.get())).renderType("cutout"));
-        simpleBlockWithItem(ModBlocks.POTTED_MOON_ORCHID.get(),
-                models().withExistingParent("potted_moon_orchid", mcLoc("block/flower_pot_cross"))
-                        .texture("plant", blockTexture(ModBlocks.MOON_ORCHID.get())).renderType("cutout"));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

@@ -8,7 +8,7 @@ import com.alex.guzhenren.datagen.providers.block.ModBlockStateProvider;
 import com.alex.guzhenren.datagen.providers.block.ModBlockTagGenerator;
 import com.alex.guzhenren.datagen.providers.item.ModItemModelProvider;
 import com.alex.guzhenren.datagen.providers.item.ModItemTagGenerator;
-import com.alex.guzhenren.datagen.providers.worldgen.ModWorldGenProvider;
+import com.alex.guzhenren.datagen.providers.ModWorldGenProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
